@@ -1,0 +1,21 @@
+h2{
+  margin-bottom: 20px;
+}
+button{
+      margin-left: 15px;
+}
+[class*=col]{
+  padding: 0px;
+}
+
+.row{
+  margin-bottom: 20px;
+}
+
+.default-header{
+  margin-top: 20px;
+}
+.breadcrumb{
+  background-color: white;
+  padding-left: 0px;
+}

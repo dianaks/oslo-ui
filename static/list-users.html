@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <header>
+    <div class="default-header">
+      <div class="container">
+        <div class="col-md-10">
+          <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Private</a></li>
+            <li><a href="#">Pictures</a></li>
+            <li class="active">Vacation</li>
+          </ul>
+        </div>
+        <div class="col-md-2" style="text-align:right;">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+              admin-demo-one
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Change Warehouse</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="container">
+      <h2>List User</h2>
+      <div class="row">
+        <div class="col-md-8">
+          <button type="button" name="button" class="btn btn-primary" >Add New User</button>
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+          <div class="row">
+            <div class="col-md-9" style="text-align: right;">
+              <p>Data tertampil: </p>
+            </div>
+            <div class="col-md-3" style="text-align: left;">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  10
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">25</a></li>
+                  <li><a href="#">50</a></li>
+                  <li><a href="#">100</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="list-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Warehouse</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>admin-demo-one</td>
+                <td>Admin</td>
+                <td>Aktif</td>
+                <td>Cawang, Cakung</td>
+                <td>
+                    <button type="button" name="button" class="btn btn-default">
+                        <span class="glyphicon  glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                </td>
+              </tr>
+              <tr>
+                <td>demo-counter-one</td>
+                <td>Counter</td>
+                <td>Non Aktif</td>
+                <td>Cawang</td>
+                <td>
+                    <button type="button" name="button" class="btn btn-default">
+                        <span class="glyphicon  glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation" style="text-align: right;">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="First">First</a>
+              </li>
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Last">Last</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      </div>
+  </body>
+</html>
