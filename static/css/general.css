@@ -1,5 +1,5 @@
 h2{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 [class*=col]{
@@ -28,4 +28,7 @@ h2{
 .checkbox{
   margin: 0px;
   padding: 0px;
+}
+.label{
+  font-size: 50%;
 }
