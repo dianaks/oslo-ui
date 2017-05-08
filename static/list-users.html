@@ -4,23 +4,19 @@
     <meta charset="utf-8">
     <title></title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/general.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   </head>
   <body>
     <div class="container">
       <h2>List User</h2>
       <div class="row">
         <div class="col-md-8">
-          <button type="button" name="button" class="btn btn-primary" >Add New User</button>
+          <button type="button" name="button" class="btn btn-primary"
+              style="margin-left:15px" >Add New User</button>
         </div>
         <div class="col-md-4" style="text-align: right;">
           <div class="row">
             <div class="col-md-9" style="text-align: right;">
-              <p>Data tertampil: </p>
+              <p style="padding-right:15px">Data tertampil:</p>
             </div>
             <div class="col-md-3" style="text-align: left;">
               <div class="dropdown">
@@ -46,6 +42,44 @@
                 <th>Role</th>
                 <th>Status</th>
                 <th>Warehouse</th>
+                <th></th>
+              </tr>
+              <tr>
+                <th><input type="username" class="form-control" id="username"
+                  placeholder="Cari Username"></th>
+                <th>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      Semua
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Admin</a></li>
+                      <li><a href="#">Counter</a></li>
+                    </ul>
+                  </div>
+                </th>
+                <th>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      Semua
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Aktif</a></li>
+                      <li><a href="#">Non Aktif</a></li>
+                    </ul>
+                  </div>
+                </th>
+                <th>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      Semua
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Cawang</a></li>
+                      <li><a href="#">Cakung</a></li>
+                    </ul>
+                  </div>
+                </th>
                 <th></th>
               </tr>
             </thead>
@@ -76,15 +110,15 @@
           </table>
           <nav aria-label="Page navigation" style="text-align: right;">
             <ul class="pagination">
-              <li>
+              <li class="disabled">
                 <a href="#" aria-label="First">First</a>
               </li>
-              <li>
+              <li class="disabled">
                 <a href="#" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">1</a></li>
               <li><a href="#">2</a></li>
               <li><a href="#">3</a></li>
               <li><a href="#">4</a></li>

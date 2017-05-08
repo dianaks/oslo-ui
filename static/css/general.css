@@ -1,9 +1,7 @@
 h2{
   margin-bottom: 20px;
 }
-button{
-      margin-left: 15px;
-}
+
 [class*=col]{
   padding: 0px;
 }
@@ -18,4 +16,16 @@ button{
 .breadcrumb{
   background-color: white;
   padding-left: 0px;
+}
+
+.form-control {
+  width: 75%;
+}
+.input-group {
+  margin-bottom: 0px;
+  /*width: 75%;*/
+}
+.checkbox{
+  margin: 0px;
+  padding: 0px;
 }

@@ -7,11 +7,14 @@
     // configure our routes
     scotchApp.config(function($routeProvider) {
         $routeProvider
-
             // route for the home page
             .when('/', {
                 templateUrl : 'static/list-users.html',
                 controller  : 'mainController'
+            })
+            .when('/stockopname',{
+              templateUrl : 'static/stockopname.html',
+              controller: ''
             })
     });
 
