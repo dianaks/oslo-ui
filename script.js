@@ -16,6 +16,10 @@
               templateUrl : 'static/stockopname.html',
               controller: ''
             })
+            .when('/stockopname-detail',{
+              templateUrl : 'static/stockopname-detail.html',
+              controller:''
+            })
     });
 
     // create the controller and inject Angular's $scope
