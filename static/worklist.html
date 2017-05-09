@@ -6,8 +6,9 @@
 
   </head>
   <body>
+
     <div class="container">
-      <h2>Stock Opname</h2>
+      <h2>Worklist</h2>
       <div class="row">
         <div class="col-md-3">
           <button type="button" name="button" class="btn btn-primary"
@@ -57,83 +58,34 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value=""></label>
-                  </div>
-                </th>
+
                 <th>Stock Opname No.</th>
-                <th>Counter</th>
                 <th>Status</th>
-                <th>Waktu Pembuatan</th>
                 <th>Total Qty</th>
-                <th>Total SKU</th>
-                <th></th>
+                <th>SKU</th>
+                <th>Tanggal Dibuat</th>
+                <th> </th>
+
               </tr>
               <tr>
-                <th></th>
-                <th><input type="stockopname" class="form-control"
-                  id="stockopname" placeholder="Cari Stock Opname">
-                </th>
-                <th>
-                  <input type="counter" class="form-control"
-                    id="counter" placeholder="Cari Counter">
-                </th>
-                <th>
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                      Semua
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Open</a></li>
-                      <li><a href="#">Assigned</a></li>
-                      <li><a href="#">In Progress</a></li>
-                      <li><a href="#">Finish Counting</a></li>
-                    </ul>
-                  </div>
-                </th>
-                <th>
-                  <p class="input-group">
-                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                     <span class="input-group-btn">
-                       <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                     </span>
-                  </p>
-                </th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value=""></label>
-                  </div>
-                </td>
                 <td>STO/WAB-000012/XI-2016/00005</td>
                 <td>-</td>
-                <td>Open</td>
-                <td>11/06/2016</td>
-                <td>100</td>
-                <td>11</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
                 <td>
                     <a href="">Detail</a>
                 </td>
               </tr>
               <tr>
-                <td>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value=""></label>
-                  </div>
-                </td>
+
                 <td>STO/WAB-000012/XI-2016/00005</td>
-                <td>demo-counter-one</td>
-                <td>Assigned</td>
-                <td>11/06/2016</td>
-                <td>100</td>
-                <td>11</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
                 <td>
                     <a href="">Detail</a>
                 </td>
@@ -176,5 +128,6 @@
         </div>
       </div>
       </div>
+
   </body>
 </html>

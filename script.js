@@ -24,6 +24,27 @@
               templateUrl : 'static/daily-report-detail.html',
               controller:''
             })
+            .when('/worklist', {
+                templateUrl: 'static/worklist.html',
+                controller:''
+            })
+            .when('/detailworklist', {
+                templateUrl: 'static/detailworklist.html',
+                controller:''
+            })
+            .when('/pilihmetodeinput', {
+                templateUrl: 'static/popupmetodeinput.html',
+                controller:''
+            })
+            .when('/barangtidakada', {
+                templateUrl: 'static/popupbarangtidakada.html',
+                controller:''
+            })
+            .when('/selesai', {
+                templateUrl: 'static/popupselesai.html',
+                controller:''
+            })
+
     });
 
     // create the controller and inject Angular's $scope
