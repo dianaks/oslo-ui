@@ -37,3 +37,9 @@ h2{
   padding-right: 10px;
   padding-bottom: 10px;
 }
+.horizontal-collapse {
+  height: 70px;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
