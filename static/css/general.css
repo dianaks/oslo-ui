@@ -32,3 +32,8 @@ h2{
 .label{
   font-size: 50%;
 }
+.borderless td{
+  border:none;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
