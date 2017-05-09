@@ -36,13 +36,33 @@
               templateUrl:'static/register-user.html',
               controller:''
             })
+            .when('/',{
+              templateUrl:'static/welcome.html',
+              controler:''
+            })
+            .when('/warehouse',{
+              templateUrl:'static/warehouse.html',
+              controler:''
+            })
     });
 
     // create the controller and inject Angular's $scope
     osloApp.controller('mainController', function($scope) {
         // create a message to display in our view
-        $scope.message = 'Everyone come and see how good I look!';
+
     });
+
+    angular.module('ui.bootstrap.demo').controller('CollapseDemoCtrl', function ($scope) {
+    $scope.isNavCollapsed = true;
+    $scope.isCollapsed = false;
+    $scope.isCollapsedHorizontal = false;
+    });
+
+  //  osloApp.controller('CollapseDemoCtrl', function ($scope) {
+  //     $scope.isNavCollapsed = true;
+  //     $scope.isCollapsed = false;
+  //     $scope.isCollapsedHorizontal = false;
+  //   });
 
     osloApp.controller('editUserController', function($scope){
       $('.selectpicker').selectpicker('render');
