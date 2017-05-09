@@ -44,6 +44,22 @@
                 templateUrl: 'static/popupselesai.html',
                 controller:''
             })
+            .when('/inputbysku', {
+                templateUrl: 'static/inputbysku.html',
+                controller:''
+            })
+            .when('/inputbyskuvalid', {
+                templateUrl: 'static/inputbyskuvalid.html',
+                controller:''
+            })
+            .when('/inputbyskuinvalidstorage', {
+                templateUrl: 'static/inputbyskuinvalidstorage.html',
+                controller:''
+            })
+            .when('/inputbyskuinvalidsku', {
+                templateUrl: 'static/inputbyskuinvalidsku.html',
+                controller:''
+            })
 
     });
 
