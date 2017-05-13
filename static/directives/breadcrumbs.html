@@ -1,0 +1,11 @@
+<ul class="breadcrumb">
+  <li ng-repeat="breadcrumb in Breadcrumbs.list()">
+            <a ng-if="breadcrumb.state && !$last" ui-sref="{{breadcrumb.state}}">{{breadcrumb.title | translate}}</a>
+            <span class="active" ng-show="$last">{{breadcrumb.title | translate}}</span>
+            <span ng-hide="$last" class="divider"></span>
+        </li>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Private</a></li>
+  <li><a href="#">Pictures</a></li>
+  <li class="active">Vacation</li>
+</ul>
