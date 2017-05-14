@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" ng-app = "" ng-controller = "stockopnameController"  >
       <h2>Stock Opname</h2>
       <div class="row">
         <div class="col-md-3">
@@ -52,7 +52,9 @@
           </div>
         </div>
         </div>
-        <div class="list-body">
+
+    <div class="list-body" >
+    <!--<div class="list-body" ng-app = "" ng-controller = "stockopnameController" >-->
           <table class="table table-striped">
             <thead>
               <tr>
@@ -105,40 +107,28 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+
+              <tr ng-repeat = "stockopname in datas.data.data">
                 <td>
                   <div class="checkbox">
                     <label><input type="checkbox" value=""></label>
                   </div>
                 </td>
-                <td>STO/WAB-000012/XI-2016/00005</td>
-                <td>-</td>
-                <td>Open</td>
-                <td>11/06/2016</td>
-                <td>100</td>
-                <td>11</td>
+                <td>{{stockopname.stockOpnameId}} asd</td>
+                <td></td>
+                <td>{{stockopname.status}}</td>
                 <td>
-                    <a href="">Detail</a>
-                </td>
+                  <!--<a href="">Detail</a>-->
+                <!--</td>-->
               </tr>
-              <tr>
-                <td>
-                  <div class="checkbox">
-                    <label><input type="checkbox" value=""></label>
-                  </div>
-                </td>
-                <td>STO/WAB-000012/XI-2016/00005</td>
-                <td>demo-counter-one</td>
-                <td>Assigned</td>
-                <td>11/06/2016</td>
-                <td>100</td>
-                <td>11</td>
-                <td>
-                    <a href="">Detail</a>
-                </td>
-              </tr>
+
+
+
             </tbody>
           </table>
+        <div ng-repeat = "stockopname in datas">
+            <p>{{stockopname.status}}</p>
+        </div>
           <nav aria-label="Page navigation" style="text-align: right;">
             <ul class="pagination">
               <li class="disabled">
