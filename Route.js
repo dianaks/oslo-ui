@@ -2,7 +2,7 @@ var osloAppRouting = angular.module('osloApp');
 osloAppRouting.config(function($routeProvider) {
   $routeProvider
       // route for the home page
-      .when('/user-list', {
+      .when('/list-users', {
           templateUrl : 'static/list-users.html',
           controller  : 'mainController',
           label: 'User List', options: {hidden: false}
@@ -48,3 +48,7 @@ osloAppRouting.config(function($routeProvider) {
         label: 'Warehouse', options: {hidden: true}
       })
 });
+
+osloAppRouting.config(['$locationProvider', function($locationProvider) {
+  $locationProvider.hashPrefix('');
+}]);
