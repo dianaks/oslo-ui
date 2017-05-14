@@ -8,4 +8,6 @@
      function relocate_register(){
            location.href = "#/list-users/register-user";
       }
+
+
  }]);

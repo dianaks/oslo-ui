@@ -8,4 +8,3 @@
     osloApp.controller('editUserController', function($scope){
       $('.selectpicker').selectpicker('render');
     });
-

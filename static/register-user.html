@@ -4,87 +4,91 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body  ng-controller="registerUserController">
     <div class="container">
       <h2>Add New User</h2>
           <div class="summary">
-            <table class="borderless">
-              <tr>
-                <td>Username</td>
-                <td>:</td>
-                <td><input type="username" class="form-control"
-                  id="username" placeholder="Username"></td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <input type="password" class="form-control"
-                        id="password" placeholder="Password">
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkbox">
-                        <label><input type="checkbox" value="">Show Password</label>
+            <form class="" action="index.html" method="post">
+              <div class="input-group">
+                <table class="borderless">
+                  <tr>
+                    <td>Username</td>
+                    <td>:</td>
+                    <td><input type="username" class="form-control"
+                      id="username" placeholder="Username" ng-model="newUser.username"></td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="password" class="form-control"
+                            id="password" placeholder="Password">
+                        </div>
+                        <div class="col-md-6">
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="">Show Password</label>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  </td>
-              </tr>
-              <tr>
-                <td>Role</td>
-                <td>:</td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="checkbox">
-                        <label><input type="checkbox" value="">ADMIN</label>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkbox">
-                        <label><input type="checkbox" value="">COUNTER</label>
-                      </div>
-                    </div>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>Role</td>
+                    <td>:</td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="">ADMIN</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="checkbox">
+                            <label><input type="checkbox" value="">COUNTER</label>
+                          </div>
+                        </div>
 
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Status</td>
-                <td>:</td>
-                <td>
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                      Semua
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Aktif</a></li>
-                      <li><a href="#">Non Aktif</a></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>Warehouse</td>
-                <td>:</td>
-                <td>
-                  <div ng-controller="editUserController">
-                    <select class="selectpicker" data-live-search="true" multiple data-selected-text-format="count > 3">
-                      <option data-content="Cawang">Cawang</option>
-                      <option data-content="Cakung">Cakung</option>
-                      <option data-content="Gudang KS Tubun">Gudang KS Tubun</option>
-                    </select>
-                  </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    <td>:</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                          Semua
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Aktif</a></li>
+                          <li><a href="#">Non Aktif</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Warehouse</td>
+                    <td>:</td>
+                    <td>
+                      <div ng-controller="editUserController">
+                        <select class="selectpicker" data-live-search="true" multiple data-selected-text-format="count > 3">
+                          <option data-content="Cawang">Cawang</option>
+                          <option data-content="Cakung">Cakung</option>
+                          <option data-content="Gudang KS Tubun">Gudang KS Tubun</option>
+                        </select>
+                      </div>
 
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="row" style="text-align:right">
-            <button type="button" name="button" class="btn btn-primary"> Simpan </button>
-            <button type="button" name="button" class="btn btn-primary"> Batal </button>
+                    </td>
+                  </tr>
+                </table>
+                <div class="row" style="text-align:right">
+                  <button type="submit" name="button" class="btn btn-primary"  ng-click="registerUser()"> Simpan </button>
+                  <button type="button" name="button" class="btn btn-primary"> Batal </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
   </body>
