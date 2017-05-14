@@ -9,7 +9,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/stockopname',{
         templateUrl : 'static/stockopname.html',
-        controller: '',
+        controller: 'stockopnameController',
         label: 'Stock Opname', options: {hidden: false}
       })
       .when('/stockopname/stockopname-detail',{
