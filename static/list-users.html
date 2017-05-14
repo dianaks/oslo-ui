@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-
   </head>
   <body>
-    <div class="container">
+    <div class="container"  ng-controller="userListController">
       <h2>List User</h2>
       <div class="row">
         <div class="col-md-8">
-          <button type="button" name="button" class="btn btn-primary"
-              style="margin-left:15px" >Add New User</button>
+          <input type="button" class="btn btn-primary" value="Add New User" onclick="location.href = '#/list-users/register-user';"
+              style="margin-left:15px" ></input>
         </div>
         <div class="col-md-4" style="text-align: right;">
           <div class="row">
@@ -84,11 +83,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>admin-demo-one</td>
-                <td>Admin</td>
-                <td>Aktif</td>
-                <td>Cawang, Cakung</td>
+              <tr ng-repeat = "user in response.data.data">
+                <td>{{user.username}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.status}}</td>
+                <td>{{user.warehouses.name}}</td>
                 <td>
                     <button type="button" name="button" class="btn btn-default">
                         <span class="glyphicon  glyphicon-pencil" aria-hidden="true"></span>
