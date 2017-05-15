@@ -1,14 +1,24 @@
 angular.module('osloApp').controller('registerUserController',['$scope','$http',
 function  ($scope,$http) {
-    var url = "localhost:8080/api/users";
     $scope.registerUser = function(){
-      $scope.newUser = {
-        username:"counter-demo-five",
+      var newUser = {
+        username:"demo-counter-five",
         password:"password",
-        role:"counter",
-        warehouse:"Cawang"
+        status:"Active",
+        role:"ROLE_COUNTER",
+        warehouse:['Cawang']
       }
-      alert($scope.newUser.username);
+      var request = {
+        method: "POST",
+        url: "http://localhost:8080/api/users",
+        data: newUser,
+        headers: {
+          "Authorization": "Basic " + btoa("super-admin-demo:123")
+        }
+      }
+      console.log(request);
+      $http(request).then(function(response) {
+          console.log(response)
+      });
     }
-    // $http.post(url,newUser);
 }]);

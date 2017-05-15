@@ -52,3 +52,7 @@ h2{
 .navbar-collapse.in {
   overflow-y: hidden;
 }
+
+.control-label{
+  padding-right: 20px;
+}
