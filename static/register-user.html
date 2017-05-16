@@ -4,21 +4,22 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body  ng-controller="registerUserController">
+  <body>
     <div class="container">
       <h2>Add New User</h2>
           <div class="summary">
-            <form class="form-horizontal">
+            <form class="form-horizontal"  ng-controller="registerUserController"
+                ng-submit="registerUser()" >
               <div class="form-group">
                <label for="inputUsername" class="col-sm-1 control-label">Username</label>
                <div class="col-sm-11">
-                 <input type="username" class="form-control" id="inputUsername" placeholder="Email">
+                 <input ng-model="newUser.username" type="username" class="form-control" id="inputUsername" placeholder="Username">
                </div>
              </div>
              <div class="form-group">
                <label for="inputPassword" class="col-sm-1 control-label">Password</label>
                <div class="col-sm-11">
-                 <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                 <input ng-model="newUser.password" type="password" class="form-control" id="inputPassword" placeholder="Password">
                </div>
              </div>
              <div class="form-group">
@@ -32,44 +33,37 @@
              </div>
               <div class="form-group">
                 <label for="inputRole" class="col-sm-1 control-label">Role</label>
-                <div class="col-sm-1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" value="">ADMIN</label>
+                <div class="col-sm-11">
+                  <div class="radio">
+                    <label class="radio-inline"><input type="radio" name="optradio" ng-model="newUser.role" value="ROLE_ADMIN">Admin</label>
                   </div>
-                </div>
-                <div class="col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" value="">COUNTER</label>
+                  <div class="radio">
+                    <label class="radio-inline"><input type="radio" name="optradio" ng-model="newUser.role" value="ROLE_COUNTER">Counter</label>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatus" class="col-sm-1 control-label">Status</label>
-                <div class="dropdown col-sm-11">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                    Semua
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Aktif</a></li>
-                    <li><a href="#">Non Aktif</a></li>
-                  </ul>
+                <div class="col-sm-11">
+                  <select class="form-control" ng-model="newUser.status">
+                    <option value="Active">Aktif</option>
+                    <option value="Inactive">Non Aktif</option>
+                  </select>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputWarehouse"  class="col-sm-1 control-label"> Warehouse</label>
-                <div class="col-sm-11" ng-controller="editUserController">
-                  <select class="selectpicker" data-live-search="true" multiple data-selected-text-format="count > 3">
-                    <option data-content="Cawang">Cawang</option>
-                    <option data-content="Cakung">Cakung</option>
-                    <option data-content="Gudang KS Tubun">Gudang KS Tubun</option>
+                <div class="col-sm-11">
+                  <select ng-model="newUser.warehouse" class="selectpicker" data-live-search="true" multiple data-selected-text-format="count > 3">
+                    <option value="Cawang" data-content="Cawang">Cawang</option>
+                    <option value="Cakung" data-content="Cakung">Cakung</option>
+                    <option value="Gudang KS Tubun" data-content="Gudang KS Tubun">Gudang KS Tubun</option>
                   </select>
                 </div>
               </div>
                 <div class="row" style="text-align:right">
-                  <button type="submit" name="button" class="btn btn-success"  ng-click="registerUser()"> Simpan </button>
-                  <button type="button" name="button" class="btn btn-warning"> Batal </button>
+                  <input type="submit" value="Submit" class="btn btn-success"></input>
+                  <button type="button" name="button" class="btn btn-warning" onclick="location.href = '#/list-users';"> Kembali </button>
                 </div>
             </form>
           </div>
