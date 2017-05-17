@@ -13,20 +13,26 @@
               <div class="form-group">
                <label for="inputUsername" class="col-sm-1 control-label">Username</label>
                <div class="col-sm-11">
-                 <input ng-model="newUser.username" type="username" class="form-control" id="inputUsername" placeholder="Username">
+                 <input id="inputUsername" class="form-control" type="username"
+                  placeholder="Username" ng-model="newUser.username" required>
                </div>
              </div>
              <div class="form-group">
                <label for="inputPassword" class="col-sm-1 control-label">Password</label>
                <div class="col-sm-11">
-                 <input ng-model="newUser.password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                 <input ng-hide="showpassword" ng-model="newUser.password"
+                  type="password" class="form-control" id="inputPassword"
+                  placeholder="Password" required>
+                 <input ng-show="showpassword" ng-model="newUser.password"
+                  type="text" class="form-control" id="inputPassword"
+                  placeholder="Password" required>
                </div>
              </div>
              <div class="form-group">
                <div class="col-sm-offset-1 col-sm-11">
                  <div class="checkbox">
                    <label>
-                     <input type="checkbox"> Show Password
+                     <input type="checkbox" ng-model="showpassword" value="false"> Show Password
                    </label>
                  </div>
                </div>
@@ -35,10 +41,14 @@
                 <label for="inputRole" class="col-sm-1 control-label">Role</label>
                 <div class="col-sm-11">
                   <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="optradio" ng-model="newUser.role" value="ROLE_ADMIN">Admin</label>
-                  </div>
-                  <div class="radio">
-                    <label class="radio-inline"><input type="radio" name="optradio" ng-model="newUser.role" value="ROLE_COUNTER">Counter</label>
+                    <label class="radio-inline">
+                      <input type="radio" name="optradio" ng-model="newUser.role"
+                        value="ROLE_ADMIN">Admin
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="optradio" value="ROLE_COUNTER"
+                        ng-model="newUser.role">Counter
+                    </label>
                   </div>
                 </div>
               </div>
@@ -51,10 +61,10 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputWarehouse"  class="col-sm-1 control-label"> Warehouse</label>
+              <div class="form-group" >
+                <label for="inputWarehouse" class="col-sm-1 control-label"> Warehouse</label>
                 <div class="col-sm-11">
-                  <select ng-model="newUser.warehouse" class="selectpicker" data-live-search="true" multiple data-selected-text-format="count > 3">
+                  <select ng-model="newUser.warehouse" class="selectpicker" data-live-search="true" multiple>
                     <option value="Cawang" data-content="Cawang">Cawang</option>
                     <option value="Cakung" data-content="Cakung">Cakung</option>
                     <option value="Gudang KS Tubun" data-content="Gudang KS Tubun">Gudang KS Tubun</option>

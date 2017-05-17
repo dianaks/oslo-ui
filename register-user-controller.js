@@ -2,6 +2,9 @@ angular.module('osloApp').controller('registerUserController',['$scope','$http',
 function  ($scope,$http) {
 
     $scope.newUser = {};
+    $scope.showpassword = false;
+    $scope.newUser.role="ROLE_COUNTER";
+
     $('.selectpicker').selectpicker('render');
 
     $scope.registerUser = function(){
