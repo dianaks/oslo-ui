@@ -9,7 +9,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/stockopname',{
         templateUrl : 'static/stockopname.html',
-        controller: 'stockopnameController',
+        controller: '',
         label: 'Stock Opname', options: {hidden: false}
       })
       .when('/stockopname/stockopname-detail',{
@@ -34,7 +34,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/list-users/register-user',{
         templateUrl:'static/register-user.html',
-        controller:'',
+        controller:'registerUserController',
         label: 'Register User', options: {hidden: false}
       })
       .when('/',{
