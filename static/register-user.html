@@ -43,11 +43,11 @@
                   <div class="radio">
                     <label class="radio-inline">
                       <input type="radio" name="optradio" ng-model="newUser.role"
-                        value="ROLE_ADMIN">Admin
+                        value="ROLE_ADMIN" ng-click="checkRole()">Admin
                     </label>
                     <label class="radio-inline">
                       <input type="radio" name="optradio" value="ROLE_COUNTER"
-                        ng-model="newUser.role">Counter
+                        ng-model="newUser.role" ng-click="checkRole()">Counter
                     </label>
                   </div>
                 </div>
@@ -64,7 +64,16 @@
               <div class="form-group" >
                 <label for="inputWarehouse" class="col-sm-1 control-label"> Warehouse</label>
                 <div class="col-sm-11">
-                  <select ng-model="newUser.warehouse" class="selectpicker" data-live-search="true" multiple>
+                  <select ng-show="isCounter" ng-model="newUser.warehouse"
+                    class="selectpicker" data-live-search="true" multiple
+                    data-max-options="1" >
+                    <option value="Cawang" data-content="Cawang">Cawang</option>
+                    <option value="Cakung" data-content="Cakung">Cakung</option>
+                    <option value="Gudang KS Tubun" data-content="Gudang KS Tubun">Gudang KS Tubun</option>
+                  </select>
+                  <select ng-hide="isCounter" ng-model="newUser.warehouse"
+                    class="selectpicker" data-live-search="true" multiple
+                    data-max-options="2">
                     <option value="Cawang" data-content="Cawang">Cawang</option>
                     <option value="Cakung" data-content="Cakung">Cakung</option>
                     <option value="Gudang KS Tubun" data-content="Gudang KS Tubun">Gudang KS Tubun</option>

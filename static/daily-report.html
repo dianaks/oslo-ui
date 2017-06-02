@@ -5,66 +5,84 @@
     <title></title>
   </head>
   <body>
-    <div class="container">
+    <div class="container" ng-controller="dailyReportController">
       <h2>Daily Report</h2>
           <div class="summary">
-            <table class="borderless">
-              <tr>
-                <td><p style="padding-right:15px">Pilih Tanggal</p></td>
-                <td>:</td>
-                <td>
-                  <p class="input-group">
-                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                     <span class="input-group-btn">
-                       <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                     </span>
-                  </p>
-              </td>
-              </tr>
-              <tr>
-                <td>Total SKU Terhitung</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Qty Terhitung</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Total SKU Lebih</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Qty Barang Lebih</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Total SKU Kurang</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Qty Barang Kurang</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                  <td>Total SKU Tidak Sesuai Storage</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Qty SKU Tidak Sesuai Storage</td>
-                <td>:</td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-          <div class="row" style="text-align:right">
-            <button type="button" name="button" class="btn btn-primary"> Tampilkan Lebih Rinci </button>
+            <div class="row" style="padding-bottom:30px;">
+              <div class="col-sm-4">
+                <p class="input-group">
+                   <input type="text" class="form-control"
+                   uib-datepicker-popup="{{format}}" ng-model="dt"
+                   is-open="popup1.opened" datepicker-options="dateOptions"
+                   ng-required="true" close-text="Close"
+                   alt-input-formats="altInputFormats" />
+                   <span class="input-group-btn">
+                     <button type="button" class="btn btn-default"
+                      ng-click="open1()">
+                      <i class="glyphicon glyphicon-calendar"></i>
+                     </button>
+                   </span>
+                </p>
+              </div>
+              <div class="col-sm-8" style="padding-left:20px;">
+                <input type="button" class="btn btn-primary"
+                ng-click="showReport()" value="Submit">
+              </div>
+            </div>
+            <div ng-show="showStatus">
+              <table class="borderless" >
+                <tr>
+                  <td>Report Tanggal</td>
+                  <td>:</td>
+                  <td>{{report.date}}</td>
+                </tr>
+                <tr>
+                  <td>Total SKU Terhitung</td>
+                  <td>:</td>
+                  <td>{{report.countedSKU}} SKU</td>
+                </tr>
+                <tr>
+                  <td>Qty Terhitung</td>
+                  <td>:</td>
+                  <td>{{report.countedQty}} Buah</td>
+                </tr>
+                <tr>
+                  <td>Total SKU Lebih</td>
+                  <td>:</td>
+                  <td>{{report.surplusSKU}} SKU</td>
+                </tr>
+                <tr>
+                  <td>Qty Barang Lebih</td>
+                  <td>:</td>
+                  <td>{{report.surplusQty}} Buah</td>
+                </tr>
+                <tr>
+                  <td>Total SKU Kurang</td>
+                  <td>:</td>
+                  <td>{{report.deficitQty}} SKU</td>
+                </tr>
+                <tr>
+                  <td>Qty Barang Kurang</td>
+                  <td>:</td>
+                  <td>{{report.deficitSKU}} Buah</td>
+                </tr>
+                <tr>
+                    <td>Total SKU Tidak Sesuai Storage</td>
+                  <td>:</td>
+                  <td>{{report.totalUnknownSKU}} SKU</td>
+                </tr>
+                <tr>
+                  <td>Qty SKU Tidak Sesuai Storage</td>
+                  <td>:</td>
+                  <td>{{report.totalUnknownQty}} Buah</td>
+                </tr>
+              </table>
+              <div class="row" style="text-align:right">
+                <input type="button" class="btn btn-primary" value="Tampilkan Lebih Rinci"
+                onclick="location.href = '#/daily-report/daily-report-detail';"
+                    style="margin-left:15px" ></input>
+              </div>
+            </div>
           </div>
         </div>
   </body>

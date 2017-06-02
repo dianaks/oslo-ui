@@ -17,7 +17,7 @@ osloAppRouting.config(function($routeProvider) {
         controller:'',
         label: 'Stock Opname Detail', options: {hidden: false}
       })
-      .when('/daily-repost/daily-report-detail',{
+      .when('/daily-report/daily-report-detail',{
         templateUrl : 'static/daily-report-detail.html',
         controller:'',
         label: 'Daily Report Detail', options: {hidden: false}
