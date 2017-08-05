@@ -12,9 +12,36 @@ osloAppRouting.config(function($routeProvider) {
         controller: 'stockopnameController',
         label: 'Stock Opname', options: {hidden: false}
       })
+      .when('/worklist',{
+          templateUrl : 'static/worklist.html',
+          controller: 'worklistController',
+          label: 'Stock Opname', options: {hidden: false}
+      })
+      .when('/worklist-detail',{
+          templateUrl : 'static/worklist-detail.html',
+          controller:'worklistDetailController',
+          label: 'Stock Opname Detail', options: {hidden: false}
+      })
+      .when('/inputbystorage',{
+          templateUrl : 'static/inputbystorage.html',
+          controller:'inputbystorageController ',
+          label: 'Input By Storage', options: {hidden: false}
+      })
+
+    // .when('/inputbystorage/:skuId', {
+    //     templateUrl: 'static/inputbystorage.html',
+    //     controller: inputBySkuController,
+    //     resolve: {
+    //         sku: function($routeParams, inputService) {
+    //             var id = $routeParams.skuId;
+    //             return inputService.getContent(id);
+    //         }
+    //     }
+    // })
+
       .when('/stockopname/stockopname-detail',{
         templateUrl : 'static/stockopname-detail.html',
-        controller:'',
+        controller:'stockopnameDetailController',
         label: 'Stock Opname Detail', options: {hidden: false}
       })
       .when('/daily-repost/daily-report-detail',{
