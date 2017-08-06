@@ -1,7 +1,7 @@
 
 var stockopnameController = angular.module('osloApp');
 
-stockopnameController.controller('stockopnameController',[$rootScope,'$scope','$http', function  ($rootScope,$scope,$http) {
+stockopnameController.controller('stockopnameController',['$rootScope','$scope','$http', function  ($rootScope,$scope,$http) {
 
 
 	var request = {

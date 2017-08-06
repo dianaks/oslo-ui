@@ -5,18 +5,16 @@
     <title></title>
   </head>
   <body>
-    <div class="container" style="text-align: center;">
+    <div class="container" style="text-align: center;" ng-controller="warehouseController">
       <h2>Select Warehouse</h2>
-        <div class="btn-group dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 300px;" >
-            Select Warehouse
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" style="text-align: center;width: 300px;">
-            <li><a href="#">Cawang</a></li>
-            <li><a href="#">Cakung</a></li>
-            <li><a href="#">Gudang KS Tubun</a></li>
-          </ul>
-        </div>
+        <form class="form-inline">
+          <div class="form-group">
+            <select class="form-control" ng-model="selectedWarehouse.data"> Select Warehouse
+              <option ng-repeat="warehouse in response.data.data" value="{{warehouse.name}}">{{warehouse.name}}</option>
+            </select>
+          </div>
+          <button type="submit" name="button" class="btn btn-default" ng-click="selectWarehouse()">Lanjut</button>
+        </form>
     </div>
   </body>
 </html>

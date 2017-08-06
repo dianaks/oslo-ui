@@ -3,7 +3,8 @@
     
     $scope.credentials={
       username: "",
-      password: ""
+      password: "",
+      warehouse:""
     };
      
      $scope.authentication = function(){
@@ -22,7 +23,7 @@
               username:$scope.credentials.username,
               password:$scope.credentials.password
             }
-            location.href = "#/stockopname";
+            location.href = "#/warehouse";
           }else{
             swal("Wrong username or password!","error");
           }
