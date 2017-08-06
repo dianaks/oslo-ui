@@ -1,5 +1,5 @@
-angular.module('osloApp').controller('registerUserController',['$scope','$http',
-function  ($scope,$http) {
+angular.module('osloApp').controller('registerUserController',['$rootScope','$scope','$http',
+function  ($rootScope,$scope,$http) {
 
     $scope.newUser = {};
     $scope.showpassword = false;
@@ -33,7 +33,7 @@ function  ($scope,$http) {
         url: "http://localhost:8080/api/users",
         data: $scope.newUser,
         headers: {
-          "Authorization": "Basic " + btoa("super-admin-demo:123")
+          "Authorization": "Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
         }
       }
       $http(request).then(function(response) {

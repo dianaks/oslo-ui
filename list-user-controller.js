@@ -1,11 +1,16 @@
- angular.module('osloApp').controller('userListController',['$scope','$http',
- function  ($scope,$http) {
+ angular.module('osloApp').controller('userListController',['$rootScope','$scope','$http',
+ function  ($rootScope, $scope,$http) {
+
+    if(!$rootScope.credentials){
+      location.href = "#/";
+    }
+
      var request = {
-       method: "GET",
-       url: "http://localhost:8080/api/users?warehouse=Cakung",
+       method: "POST",
+       url: "http://localhost:8080/api/users",
        headers: {
          "Content-Type": "application/json",
-         "Authorization":"Basic " + btoa("super-admin-demo:123")
+         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
        }
      }
      $http(request).then(function(response) {

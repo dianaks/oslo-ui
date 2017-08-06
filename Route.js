@@ -42,6 +42,11 @@ osloAppRouting.config(function($routeProvider) {
         controler:'',
         label: 'Home', options: {hidden: false}
       })
+      .when('/login',{
+        templateUrl:'static/login.html',
+        controler:'',
+        label: 'Login', options: {hidden: false}
+      })
       .when('/warehouse',{
         templateUrl:'static/warehouse.html',
         controler:'',
