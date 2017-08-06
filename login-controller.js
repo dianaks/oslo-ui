@@ -23,6 +23,7 @@
               username:$scope.credentials.username,
               password:$scope.credentials.password
             }
+            $rootScope.isLoggedIn = true;
             location.href = "#/warehouse";
           }else{
             swal("Wrong username or password!","error");
