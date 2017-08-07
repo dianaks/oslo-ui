@@ -1,5 +1,26 @@
 angular.module('osloApp').controller('stockopnameController',['$rootScope','$scope','$http', function  ($rootScope,$scope,$http) {
   
+  let data = {};
+
+  var getDataStockOpname = function(){
+   var request = {
+       method: "GET",
+       url: "http://localhost:8080/api/stockopnames",
+       headers: {
+         "Content-Type": "application/json",
+         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+       }
+     }
+     return $http(request).then(function(response) {
+       $scope.data = response.data.data;
+       for (var i = $scope.data.length - 1; i >= 0; i--) {
+         $scope.data[i].timeInString = new Date($scope.data[i].waktuPembuatan).toDateString();
+         $scope.data[i].checked = false;
+         data = $scope.data;
+       }
+    });
+  }
+
   if(!$rootScope.isLoggedIn){
     location.href = "#/login";
   }else{
@@ -9,21 +30,8 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
       username:""
     };
 
-    var request = {
-       method: "GET",
-       url: "http://localhost:8080/api/stockopnames",
-       headers: {
-         "Content-Type": "application/json",
-         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
-       }
-     }
-     $http(request).then(function(response) {
-       $scope.datas = response;
-       for (var i = $scope.datas.data.data.length - 1; i >= 0; i--) {
-         $scope.datas.data.data[i].timeInString = new Date($scope.datas.data.data[i].waktuPembuatan).toDateString();
-         $scope.datas.data.data[i].checked = false;
-       }
-     });
+  getDataStockOpname();
+   
 
       var request1 = {
        method: "GET",
@@ -38,13 +46,18 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
      });
     }
 
-  $scope.assignCounter= function(){
+  $scope.clicky = function(index) {
+    $scope.data[index].checked = !$scope.data[index].checked;
+    data[index].checked = !data[index].checked;
+    console.log($scope.data);
+  }
 
-    for (var n = 0; n < $scope.datas.data.data.length; n++) {
-      console.log($scope.datas.data.data[n])
-       if($scope.datas.data.data[n].checked){
+  $scope.assignCounter= function() {
+    for (var n = 0; n < $scope.data.length; n++) {
+      console.log($scope.data[n])
+       if($scope.data[n].checked){
 
-        $scope.assignData.stockOpnameId = $scope.datas.data.data[n].stockOpnameId
+        $scope.assignData.stockOpnameId = $scope.data[n].stockOpnameId
 
          var request2 = {
              method: "POST",
@@ -58,10 +71,15 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
          
          $http(request2).then(function(response) {
            $scope.res = response;
+           getDataStockOpname().then(function() {
+            $('#myModal').modal('toggle')
+           });
          })
        }
     }
   }
+
+
 
 }])
 ;
