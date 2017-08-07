@@ -108,14 +108,14 @@
                 <td>
 
                 </td>
-                <td>{{stockopname.stockOpnameId}} asd</td>
-
+                <td>{{stockopname.stockOpnameId}} </td>
                 <td>{{stockopname.status}}</td>
                 <!--<td>{{stockopname.waktuPembuatan}}</td>-->
                 <td>{{stockopname.totalQty}}</td>
                 <td>{{stockopname.totalSKU}}</td>
                 <td>
-                    <button type="button" onclick="location.href='#/worklist-detail';" data-toggle="modal" data-target="#myModalAdd" class="btn btn-success custom-width">Detail</button>
+                    <a href={{'#/worklist-detail/'+stockopname.stockOpnameId}} class="btn btn-success custom-width"> Detail</a>
+                    <!--<button type="button" onclick="location.href='#/worklist-detail';" data-toggle="modal" data-target="#myModalAdd" class="btn btn-success custom-width">Detail</button>-->
                     </td>
             </tr>
 

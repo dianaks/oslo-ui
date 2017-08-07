@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html >
   <head>
-    <meta charset="utf-8">
+    <!--<meta charset="utf-8">-->
     <title></title>
 
 
   </head>
-  <body>
+  <body ng-app = "osloApp" ng-controller = "inputstorageController">
 
-    <div class="container" ng-app = "osloApp" ng-controller = "inputbystorageController">
+    <div class="container" >
       <div class="row">
       <div class="col-md-9">
       <h2>STO/WAB/000001/000001 inputbystorage.html</h2>
@@ -44,17 +44,19 @@
 
               <tr>
                 <td> SKU ID </td>
-                <td> {{dataditerima.skuId}} </td>
+                <!--<td>  {{response.data.data.skuData.skuId}} </td>-->
               </tr>
 
               <tr>
                 <td>Nama Item </td>
-                <!--<td ng-repeat = "stockopname in response.data.data"> {{stockopname.itemName}}</td>-->
+                <!--<td>{{response.data.data.itemName}}</td>-->
+
               </tr>
 
               <tr>
                 <td> Tipe Stock </td>
-                <!--<td ng-repeat = "stockopname in response.data.data">{{stockopname.stockType}}</td>-->
+                <!--<td>{{response.data.data.stockType}} </td>-->
+
               </tr>
 
               <tr>
@@ -117,7 +119,7 @@
           </nav>
         </div>
 
-      </div>
+      <!--</div>-->
 
 
   </body>
