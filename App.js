@@ -5,7 +5,6 @@
             $scope.breadcrumbs = breadcrumbs;
     }]);
 
-    osloApp.controller('editUserController', function($scope){
-      $('.selectpicker').selectpicker('render');
-    });
-
+    osloApp.config(['$qProvider', function ($qProvider) {
+        $qProvider.errorOnUnhandledRejections(false);
+    }]);

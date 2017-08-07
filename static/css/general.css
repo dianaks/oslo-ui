@@ -5,7 +5,10 @@ h2{
 [class*=col]{
   padding: 0px;
 }
-
+.container{
+  margin: 0px;
+  width: 1050px;
+}
 .row{
   padding-left: 15px;
 }
@@ -42,4 +45,14 @@ h2{
 }
 .navbar-collapse.in {
   overflow-y: hidden;
+}
+.horizontal-collapse {
+  height: 70px;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.control-label{
+  padding-right: 20px;
 }
