@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/libs/bootstrap/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="static/css/simple-sidebar.css">
     <link rel="stylesheet" href="js/libs/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <header>
@@ -46,11 +47,13 @@
       <div ng-show="isLoggedIn">
           <div class="container">
           {{credentials.warehouse}}
-            <div class="col-md-10" style="margin-left: -50px; margin-top: -20px">
-              <a href="#menu-toggle" id="menu-toggle" style="text-decoration: none"><img src="static/img/bookmark.png" alt="" style="width: 60px; height: 60px;"></a>
+            <div class="col-md-10">
+              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" type="button" style="padding: 3px 8px;">
+              <i class="fa fa-bars" style="font-size:25px"></i>
+              </a>
             </div>
-            <div class="col-md-2" style="text-align:right;">
-              <div class="dropdown">
+            <div class="col-md-2" style="text-align:right; margin-right: -30px">
+              <div class="dropdown" style="text-align:right; margin-right: 10px">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">{{credentials.username}}
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">

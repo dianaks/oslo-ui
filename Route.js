@@ -4,12 +4,12 @@ osloAppRouting.config(function($routeProvider) {
       // route for the home page
       .when('/list-users', {
           templateUrl : 'static/list-users.html',
-          controller  : 'mainController',
+          controller  : 'userListController',
           label: 'User List', options: {hidden: false}
       })
       .when('/stockopname',{
         templateUrl : 'static/stockopname.html',
-        controller: '',
+        controller: 'stockopname',
         label: 'Stock Opname', options: {hidden: false}
       })
       .when('/stockopname/stockopname-detail',{
@@ -44,12 +44,12 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/login',{
         templateUrl:'static/login.html',
-        controler:'',
+        controler:'loginController',
         label: 'Login', options: {hidden: false}
       })
       .when('/warehouse',{
         templateUrl:'static/warehouse.html',
-        controler:'',
+        controler:'warehouseController',
         label: 'Warehouse', options: {hidden: true}
       })
 });

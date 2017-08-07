@@ -83,10 +83,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat = "user in response.data.data">
-                <td>{{user.username}}</td>
-                <td>{{user.role}}</td>
-                <td>{{user.status}}</td>
+              <tr ng-repeat = "users in response.data.data">
+                <td>{{users.username}}</td>
+                <td>{{users.role}}</td>
+                <td>{{users.status}}</td>
                 <td>
                   <p ng-repeat="w in user.warehouse">{{w}}</p>
                 </td>

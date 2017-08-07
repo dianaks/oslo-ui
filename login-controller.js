@@ -1,12 +1,13 @@
  angular.module('osloApp').controller('loginController',['$rootScope','$scope','$http',
  function  ($rootScope,$scope,$http) {
     
+    // $rootScope.isLoggedIn = false;
     $scope.credentials={
       username: "",
       password: "",
       warehouse:""
     };
-     
+    
      $scope.authentication = function(){
 
        var request = {
@@ -19,12 +20,15 @@
        }
         $http(request).then(function(response) {
           if(response.data.success){
+            $rootScope.isLoggedIn = true;
             $rootScope.credentials={
               username:$scope.credentials.username,
-              password:$scope.credentials.password
+              password:$scope.credentials.password,
+              role:response.data.data.role
             }
-            $rootScope.isLoggedIn = true;
+            
             location.href = "#/warehouse";
+
           }else{
             swal("Wrong username or password!","error");
           }

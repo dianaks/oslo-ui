@@ -5,16 +5,34 @@
     <title></title>
   </head>
   <body>
-    <div class="container" style="text-align: center;" ng-controller="warehouseController">
-      <h2>Select Warehouse</h2>
-        <form class="form-inline">
-          <div class="form-group">
-            <select class="form-control" ng-model="selectedWarehouse.data"> Select Warehouse
-              <option ng-repeat="warehouse in response.data.data" value="{{warehouse.name}}">{{warehouse.name}}</option>
-            </select>
-          </div>
-          <button type="submit" name="button" class="btn btn-default" ng-click="selectWarehouse()">Lanjut</button>
-        </form>
+    <div class="container" ng-controller="warehouseController">
+      <div id="warehousebox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info" >
+          <div class="panel-heading">
+              <div class="panel-title">Pilih Warehouse</div>
+          </div>     
+
+          <div style="padding-top:30px" class="panel-body" >                            
+              <form id="warehouseform" class="form-horizontal" role="form" ng-submit="selectWarehouse()">
+                          
+                  <div style="margin-bottom: 15px; margin-left: 15px" class="input-group">
+                      <div class="form-group">
+                        <select class="form-control" ng-model="selectedWarehouse.data" style="width: 300px">
+                          <option value="">Pilih Warehouse</option>
+                          <option ng-repeat="warehouse in response.data.data" value="{{warehouse.name}}">{{warehouse.name}}</option>
+                        </select>
+                      </div>                                      
+                  </div>
+                      
+                  <div style="margin-top:10px; margin-left:0px; width: 100px;" class="form-group">
+                      <div class="col-md-8 controls">
+                        <input type="submit" value="Lanjut" name="button" class="btn btn-success">
+                      </div>
+                  </div>
+              </form>     
+          </div>                     
+        </div>  
+      </div>
     </div>
   </body>
 </html>

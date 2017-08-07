@@ -3,8 +3,10 @@ var stockopnameController = angular.module('osloApp');
 
 stockopnameController.controller('stockopnameController',['$rootScope','$scope','$http', function  ($rootScope,$scope,$http) {
 
-
-	var request = {
+  if(!$rootScope.isLoggedIn){
+    location.href = "#/login";
+  }else{
+    var request = {
        method: "GET",
        url: "http://localhost:8080/api/stockopnames",
        headers: {
@@ -15,6 +17,7 @@ stockopnameController.controller('stockopnameController',['$rootScope','$scope',
      $http(request).then(function(response) {
        $scope.datas = response;
      });
+  }
 
 }])
 ;
