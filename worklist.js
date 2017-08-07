@@ -17,7 +17,7 @@ worklistController.controller('worklistController',['$scope','$http',
         }
         $http(request).then(function (response) {
             $scope.response=response;
-            console.log($scope.response)
+            //console.log($scope.response)
         })
 
 }])

@@ -2,6 +2,17 @@ var osloAppRouting = angular.module('osloApp');
 osloAppRouting.config(function($routeProvider) {
   $routeProvider
       // route for the home page
+      .when('/tes:param', {
+          templateUrl : 'static/tes.html',
+          controller  : 'inputstorageController',
+          label: 'User List', options: {hidden: false}
+      })
+      // .when('/inputbystorage/:param',{
+      //     templateUrl : 'static/by-storage-baru.html',
+      //     controller:'inputstorageController ',
+      //     label: 'Input By Storage', options: {hidden: false}
+      // })
+
       .when('/user-list', {
           templateUrl : 'static/list-users.html',
           controller  : 'mainController',
@@ -17,29 +28,14 @@ osloAppRouting.config(function($routeProvider) {
           controller: 'worklistController',
           label: 'Stock Opname', options: {hidden: false}
       })
-      .when('/worklist-detail',{
+      .when('/worklist-detail/:param',{
           templateUrl : 'static/worklist-detail.html',
           controller:'worklistDetailController',
           label: 'Stock Opname Detail', options: {hidden: false}
       })
-      .when('/inputbystorage',{
-          templateUrl : 'static/inputbystorage.html',
-          controller:'inputbystorageController ',
-          label: 'Input By Storage', options: {hidden: false}
-      })
 
-    // .when('/inputbystorage/:skuId', {
-    //     templateUrl: 'static/inputbystorage.html',
-    //     controller: inputBySkuController,
-    //     resolve: {
-    //         sku: function($routeParams, inputService) {
-    //             var id = $routeParams.skuId;
-    //             return inputService.getContent(id);
-    //         }
-    //     }
-    // })
 
-      .when('/stockopname/stockopname-detail',{
+      .when('/stockopname/stockopname-detail/:param',{
         templateUrl : 'static/stockopname-detail.html',
         controller:'stockopnameDetailController',
         label: 'Stock Opname Detail', options: {hidden: false}

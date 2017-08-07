@@ -10,7 +10,7 @@
 
   </head>
   <header>
-    <div class="default-header" ng-controller="mainController">
+    <div class="default-header" >
       <div class="container">
         <div class="col-md-10">
           <ol class="ab-nav breadcrumb">
@@ -34,7 +34,7 @@
       </div>
     </div>
   </header>
-  <body>
+  <body ng-controller="mainController">
 
     <div class="main">
        <div ng-view>
@@ -56,10 +56,12 @@
 <script src="js/libs/breadcrumbs.min.js"></script>
 <script src="App.js"></script>
 <script src="Route.js"></script>
-<script src="stockopname.js"> </script>
+
+  <!--<script src="inputByStorage.js"></script>-->
+  <script src="stockopname.js"> </script>
   <script src="stockopname-detail.js"></script>
 <script src="worklist.js"> </script>
 <script src="worklist-detail.js"></script>
-  <script src="inputByStorage.js"></script>
+  <script src="input-by-storage.js"></script>
 
 </html>

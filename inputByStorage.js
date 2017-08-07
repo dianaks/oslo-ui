@@ -1,3 +1,60 @@
+var inputbystorageController = angular.module('osloApp');
+
+inputbystorageController.controller('inputbystorageController',['$scope','$http', '$routeParams' , function  ($scope,$http, $routeParams) {
+
+    var request = {
+        method: "GET",
+        url: "http://localhost:8080/api/SKU?id="+$routeParams.param,
+        headers: {
+
+            "Content-Type": "application/json",
+            "Authorization":"Basic "+ btoa("demo-counter-one:123")
+        }
+    }
+    $http(request).then(function (response) {
+        $scope.response=response;
+        alert('halo');
+    })
+
+
+}])
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 // var inputbystorageController = angular.module('osloApp');
 //
