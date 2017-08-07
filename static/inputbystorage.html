@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <!--<meta charset="utf-8">-->
+    <title></title>
+
+
+  </head>
+  <body ng-app = "osloApp" ng-controller = "inputstorageController">
+
+    <div class="container" >
+      <div class="row">
+      <div class="col-md-9">
+      <h2>STO/WAB/000001/000001 inputbystorage.html</h2>
+      </div>
+
+        <div class="col-md-2">
+          <button type="button" name="button" class="btn btn-default"
+                  style="text-align: right"> Kembali Ke Worklist </button>
+        </div>
+
+        <div class="col-md-1">
+          <button type="button" name="button" class="btn btn-primary"
+                  style="text-align: right">
+            Selesaikan
+          </button>
+        </div>
+          </div>
+
+        <div class="col-md-9">
+          <table class="table borderless">
+            <thead>
+            </thead>
+            <tbody>
+
+              <tr >
+                <td>Masukkan Barcode Storage</td>
+                <td><input class="form-control" ></td>
+              </tr>
+              <tr>
+                <td>Masukkan Barcode SKU </td>
+                <td> <input class="form-control" ></td>
+              </tr>
+
+              <tr>
+                <td> SKU ID </td>
+                <!--<td>  {{response.data.data.skuData.skuId}} </td>-->
+              </tr>
+
+              <tr>
+                <td>Nama Item </td>
+                <!--<td>{{response.data.data.itemName}}</td>-->
+
+              </tr>
+
+              <tr>
+                <td> Tipe Stock </td>
+                <!--<td>{{response.data.data.stockType}} </td>-->
+
+              </tr>
+
+              <tr>
+                <td>Masukkan Physical Quantity </td>
+                <td> <input class="form-control" ></td>
+              </tr>
+
+              <td>
+                <button type="button" name="button" class="btn btn-primary"
+                        style="text-align: right">
+                  Update Quantity
+                </button>
+              </td>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-3">
+          Qty Fisik Akumulatif: <input class="form-control">
+        </div>
+
+<div class="row" >
+<div class="col-md-9">
+</div>
+
+  <div class="col-md-2">
+    <button type="button" name="button" class="btn btn-default"
+            style="text-align: right"> Sebelumnya</button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" name="button" class="btn btn-default"
+            style="text-align: right"> Selanjutnya </button>
+  </div>
+</div>
+          <nav aria-label="Page navigation" style="text-align: right;">
+            <ul class="pagination">
+              <li class="disabled">
+                <a href="#" aria-label="First">First</a>
+              </li>
+              <li class="disabled">
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Last">Last</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      <!--</div>-->
+
+
+  </body>
+</html>
