@@ -6,12 +6,12 @@
 
   </head>
   <body>
-    <div class="container">
-      <h2>Stock Opname STO/WAB-001-0001 <span class="label label-default">Open</span></h2>
+    <div class="container" ng-app = "" ng-controller = "stockopnameDetailController">
+      <h2>Stock Opname STO/WAB-001-0001 stockopname-detail.html <span class="label label-default">Open</span></h2>
       <div class="row">
         <div class="col-md-5" style="padding-left:15px">
-          <p>Dibuat Oleh     : akunkurniawan</p>
-          <p>Waktu Pembuatan : 11-04-2016</p>
+          <p>Dibuat Oleh     : </p>
+          <p>Waktu Pembuatan : </p>
         </div>
         <div class="col-md-5">
           <p>Dikerjakan Oleh    :</p>
@@ -54,26 +54,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>Sepatu</td>
-                <td>Trading</td>
-                <td>A-00001-01</td>
-                <td>10</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Belum Dihitung</td>
+              <tr ng-repeat = "stockopname in response.data.data">
+                <td>{{stockopname.skuId}}</td>
+                <td>{{stockopname.itemName}}</td>
+                <td>{{stockopname.stockType}}</td>
+                <td>{{stockopname.storageCode}}</td>
+                <td>{{stockopname.systemQty}}</td>
+                <td>{{stockopname.physicalQty}}</td>
+                <td>{{stockopname.deviationQty}}</td>
+                <td>{{stockopname.information}}</td>
               </tr>
-              <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>Sepatu</td>
-                <td>Trading</td>
-                <td>A-00001-01</td>
-                <td>10</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Belum Dihitung</td>
-              </tr>
+
             </tbody>
           </table>
           <nav aria-label="Page navigation" style="text-align: right;">
@@ -102,7 +93,7 @@
             </ul>
           </nav>
 
-          <h3>Unknown SKU</h3>
+          <h3>Berikut adalah daftar SKU yang tidak terindentifikasi dalam stockopname ini:</h3>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -113,14 +104,14 @@
             </thead>
             <tbody>
               <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>A-00001-01</td>
-                <td>19</td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>A-00001-01</td>
-                <td>19</td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>

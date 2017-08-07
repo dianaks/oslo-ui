@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<div class="container" ng-app = "" ng-controller = "worklistController">
+    <h2>Worklist</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" name="button" class="btn btn-primary"
+                    style="margin-left:15px" >Perbaharui Data</button>
+        </div>
+        <div class="col-md-7">
+            <div class="col-md-4" style="text-align:right; padding-right:10px;"> Tanggal Pembuatan </div>
+            <div class="col-md-4" style="text-align:right; padding-right:10px;">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                   <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                 </span>
+                </p>
+            </div>
+            <div class="col-md-4"style="text-align:right; padding-right:10px;">
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                   <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                 </span>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-2" style="text-align: right;">
+            <div class="row">
+                <div class="col-md-7" style="text-align: right;">
+                    <p style="padding-right:15px">Data tertampil:</p>
+                </div>
+                <div class="col-md-5" style="text-align: left;">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            10
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">10</a></li>
+                            <li><a href="#">25</a></li>
+                            <li><a href="#">50</a></li>
+                            <li><a href="#">100</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-body" >
+        <!--<div class="list-body" ng-app = "" ng-controller = "stockopnameController" >-->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>Stock Opname No.</th>
+                <!--<th>Counter</th>-->
+                <th>Status</th>
+                <th>Waktu Pembuatan</th>
+                <th>Total Qty</th>
+                <th>Total SKU</th>
+
+                <th>Aksi</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><input type="stockopname" class="form-control"
+                           id="stockopname" placeholder="Cari Stock Opname">
+                </th>
+
+                <th>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            Semua
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Open</a></li>
+                            <li><a href="#">Assigned</a></li>
+                            <li><a href="#">In Progress</a></li>
+                            <li><a href="#">Finish Counting</a></li>
+                        </ul>
+                    </div>
+                </th>
+                <th>
+                    <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                       <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                     </span>
+                    </p>
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat = "stockopname in response.data.data">
+                <td>
+
+                </td>
+                <td>{{stockopname.stockOpnameId}} </td>
+                <td>{{stockopname.status}}</td>
+                <!--<td>{{stockopname.waktuPembuatan}}</td>-->
+                <td>{{stockopname.totalQty}}</td>
+                <td>{{stockopname.totalSKU}}</td>
+                <td>
+                    <a href={{'#/worklist-detail/'+stockopname.stockOpnameId}} class="btn btn-success custom-width"> Detail</a>
+                    <!--<button type="button" onclick="location.href='#/worklist-detail';" data-toggle="modal" data-target="#myModalAdd" class="btn btn-success custom-width">Detail</button>-->
+                    </td>
+            </tr>
+
+
+
+            </tbody>
+        </table>
+        <div ng-repeat = "stockopname in datas">
+            <p>{{stockopname.status}}</p>
+        </div>
+        <nav aria-label="Page navigation" style="text-align: right;">
+            <ul class="pagination">
+                <li class="disabled">
+                    <a href="#" aria-label="First">First</a>
+                </li>
+                <li class="disabled">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Last">Last</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
