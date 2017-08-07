@@ -19,7 +19,6 @@
      }
      $http(request).then(function(response) {
        $scope.response = response;
-      alert(response.data.data[0].username);
      });
 
      function relocate_register(){

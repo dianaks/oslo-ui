@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <div class="container" ng-app = "" ng-controller = "stockopnameController"  >
+    <div class="container" ng-app = "" ng-controller = "stockopnameController">
       <h2>Stock Opname</h2>
       <div class="row">
         <div class="col-md-3">
@@ -107,20 +107,21 @@
               </tr>
             </thead>
             <tbody>
-
+              <form>
               <tr ng-repeat = "stockopname in datas.data.data">
                 <td>
                   <div class="checkbox">
-                    <label><input type="checkbox" value=""></label>
+                    <label><input type="checkbox" value="{{stockopname.stockOpnameId}}" ng-model="stockopname.checked"></label>{{stockopname.checked}}
                   </div>
                 </td>
-                <td>{{stockopname.stockOpnameId}} asd</td>
-                <td></td>
+                <td>{{stockopname.stockOpnameId}}</td>
+                <td>{{stockopname.assignedTo}}</td>
                 <td>{{stockopname.status}}</td>
-                <td>
-                  <!--<a href="">Detail</a>-->
-                <!--</td>-->
+                <td>{{stockopname.timeInString}}</td>
+                <td>{{stockopname.totalQty}}</td>
+                <td>{{stockopname.totalSKU}}</td>
               </tr>
+              </form>
 
 
 
@@ -160,10 +161,45 @@
             <p>Total Stock Opname 0, Total SKU 0, Total Qty 0 terpilih.</p>
           </div>
           <div class="col-md-2"  style="padding-left:15px;">
-            <button type="button" name="button" class="btn btn-primary">Assign Stock Opname</button>
+            <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign Stock Opname</button>
           </div>
         </div>
       </div>
+      </div>
+      
+      <!-- Modal-->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Pilih Counter</h4>
+            </div>
+            <div class="modal-body">
+              <form id="warehouseform" class="form-horizontal" role="form" ng-submit="assignCounter()">
+                          
+                  <div style="margin-bottom: 15px; margin-left: 15px" class="input-group">
+                      <div class="form-group">
+                        <select class="form-control" ng-model="assignData.username" style="width: 300px">
+                          <option value="">Pilih Counter</option>
+                          <option ng-repeat="counter in counters.data.data" value="{{counter.username}}">{{counter.username}}</option>
+                        </select>
+                      </div>                                      
+                  </div>
+                      
+                  <div style="margin-top:10px; margin-left:0px; width: 100px;" class="form-group">
+                      <div class="col-md-8 controls">
+                        <input type="submit" value="Lanjut" name="button" class="btn btn-success">
+                      </div>
+                  </div>
+              </form>     
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
       </div>
   </body>
 </html>
