@@ -6,7 +6,7 @@ angular.module('osloApp').controller('inputstorageController',['$scope','$http',
         headers: {
 
             "Content-Type": "application/json",
-            "Authorization":"Basic "+ btoa("demo-counter-one:123")
+            "Authorization":"Basic "+ localStorage.getItem('token')
         }
     }
     $http(request1).then(function (response) {

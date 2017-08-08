@@ -8,7 +8,7 @@ inputbystorageController.controller('inputbystorageController',['$scope','$http'
         headers: {
 
             "Content-Type": "application/json",
-            "Authorization":"Basic "+ btoa("demo-counter-one:123")
+            "Authorization":"Basic "+ localStorage.getItem('token')
         }
     }
     $http(request).then(function (response) {

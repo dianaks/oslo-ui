@@ -7,7 +7,7 @@ function  ($rootScope,$scope,$http) {
       url: "http://localhost:8080/api/reports?date=20170424",
       headers: {
         "Content-Type": "application/json",
-        "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+        "Authorization":"Basic " + localStorage.getItem('token')
       }
     }
     $http(request).then(function(response) {
