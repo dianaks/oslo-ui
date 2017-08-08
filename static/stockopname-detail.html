@@ -7,16 +7,15 @@
   </head>
   <body>
     <div class="container" ng-app = "" ng-controller = "stockopnameDetailController">
-      <h2>Stock Opname STO/WAB-001-0001 stockopname-detail.html <span class="label label-default">Open</span></h2>
+      <h2>Stock Opname {{info.stockOpnameId}} <span class="label label-default">{{info.status}}</span></h2>
       <div class="row">
         <div class="col-md-5" style="padding-left:15px">
-          <p>Dibuat Oleh     : </p>
-          <p>Waktu Pembuatan : </p>
+          <p>Waktu Pembuatan : {{info.waktuBuat}}</p>
+          <p>Dikerjakan Oleh : {{info.assignedTo}}</p>
         </div>
         <div class="col-md-5">
-          <p>Dikerjakan Oleh    :</p>
-          <p>Waktu Dimulai      :</p>
-          <p>Waktu Diselesaikan :</p>
+          <p>Waktu Dimulai      : {{info.waktuMulai}}</p>
+          <p>Waktu Diselesaikan : {{info.waktuSelesai}}</p>
         </div>
         <div class="col-md-2" style="text-align: right;">
           <div class="row">
@@ -103,15 +102,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+              <tr ng-repeat="unknwonSKU in usku">
+                <td>{{unknwonSKU.unknownSKUId}}</td>
+                <td>{{unknwonSKU.storageCode}}</td>
+                <td>{{unknwonSKU.physicalQty}}</td>
               </tr>
             </tbody>
           </table>
