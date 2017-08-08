@@ -1,6 +1,9 @@
-angular.module('osloApp').controller('inputstorageController',['$scope','$http', '$routeParams' , function  ($scope,$http, $routeParams) {
-    alert('halo');
-    var request1 = {
+var inputByStorageController = angular.module('osloApp');
+
+inputByStorageController.controller('inputByStorageController',['$scope','$http', '$routeParams',
+ function  ($scope,$http, $routeParams) {
+
+    var request = {
         method: "GET",
         url: "http://localhost:8080/api/SKU?id="+$routeParams.param,
         headers: {
@@ -9,14 +12,8 @@ angular.module('osloApp').controller('inputstorageController',['$scope','$http',
             "Authorization":"Basic "+ localStorage.getItem('token')
         }
     }
-    $http(request1).then(function (response) {
+    $http(request).then(function (response) {
         $scope.response=response;
-
+        alert('halo');
     })
-
-
-}])
-;
-
-
-
+}]);

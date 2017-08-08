@@ -4,17 +4,10 @@ osloAppRouting.config(function($routeProvider) {
       // route for the home page
 
       .when('/tes:param', {
-          templateUrl : 'static/tes.html',
-          controller  : 'inputstorageController',
+          templateUrl : 'static/inputbystorage.html',
+          controller  : 'inputbystorageController',
           label: 'User List', options: {hidden: false}
       })
-  
-      // .when('/inputbystorage/:param',{
-      //     templateUrl : 'static/by-storage-baru.html',
-      //     controller:'inputstorageController ',
-      //     label: 'Input By Storage', options: {hidden: false}
-      // })
-
       .when('/list-users', {
           templateUrl : 'static/list-users.html',
           controller  : 'userListController',
@@ -33,7 +26,7 @@ osloAppRouting.config(function($routeProvider) {
       .when('/worklist-detail/:param',{
           templateUrl : 'static/worklist-detail.html',
           controller:'worklistDetailController',
-          label: 'Stock Opname Detail', options: {hidden: false}
+          label: 'Worklist Detail', options: {hidden: false}
       })
       .when('/stockopname/stockopname-detail/:param',{
         templateUrl : 'static/stockopname-detail.html',
@@ -74,6 +67,11 @@ osloAppRouting.config(function($routeProvider) {
         templateUrl:'static/warehouse.html',
         controler:'warehouseController',
         label: 'Warehouse', options: {hidden: true}
+      })
+      .when('/input/:param',{
+        templateUrl:'static/inputbysku.html',
+        controler:'',
+        label: 'Input By SKU', options: {hidden: false}
       })
 });
 

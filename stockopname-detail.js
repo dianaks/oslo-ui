@@ -1,7 +1,8 @@
 
 var stockopnameDetailController = angular.module('osloApp');
 
-stockopnameDetailController.controller('stockopnameDetailController',['$scope','$http', '$routeParams' , function  ($scope,$http, $routeParams) {
+stockopnameDetailController.controller('stockopnameDetailController',['$scope','$http', '$routeParams' , 
+    function  ($scope,$http, $routeParams) {
 
     var getStockOpnameInfo = function(){
         var request = {
@@ -56,8 +57,7 @@ stockopnameDetailController.controller('stockopnameDetailController',['$scope','
     if(localStorage.getItem('isLoggedIn')){
         getStockOpnameInfo();
         getAllSKU();
-        getUnknownSKU();
-            
+        getUnknownSKU(); 
     } 
 
 }]);

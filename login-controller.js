@@ -26,13 +26,6 @@
        }
         $http(request).then(function(response) {
           if(response.data.success){
-            // $rootScope.isLoggedIn = true;
-            // $rootScope.credentials={
-            //   username:$scope.credentials.username,
-            //   password:$scope.credentials.password,
-            //   role:response.data.data.role
-            // }
-
             localStorage.setItem('isLoggedIn',true)
             localStorage.setItem('username',$scope.credentials.username)
             localStorage.setItem('token',btoa($scope.credentials.username+":"+$scope.credentials.password))
