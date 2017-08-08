@@ -6,7 +6,7 @@
 
   </head>
   <body>
-    <div class="container" ng-controller="dailyReportController">
+    <div class="container" ng-controller="dailyreportDetailController">
       <div class="row">
         <div class="col-md-8">
           <h2>Daily Report 11-04-2016</h2>
@@ -55,26 +55,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>Sepatu</td>
-                <td>Trading</td>
-                <td>A-00001-01</td>
-                <td>10</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Belum Dihitung</td>
+              <tr ng-repeat="sku in data">
+                <td>{{sku.skuId}} </td>
+                <td>{{sku.itemName}}</td>
+                <td>{{sku.stockType}}</td>
+                <td>{{sku.storageCode}}</td>
+                <td>{{sku.systemQty}}</td>
+                <td>{{sku.physicalQty}}</td>
+                <td>{{sku.deviationQty}}</td>
+                <td>{{sku.information}}</td>
               </tr>
-              <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>Sepatu</td>
-                <td>Trading</td>
-                <td>A-00001-01</td>
-                <td>10</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Belum Dihitung</td>
-              </tr>
+
             </tbody>
           </table>
           <nav aria-label="Page navigation" style="text-align: right;">
@@ -114,15 +105,11 @@
             </thead>
             <tbody>
               <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>A-00001-01</td>
-                <td>19</td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
-              <tr>
-                <td>SKU-000012/XI-2016/00005</td>
-                <td>A-00001-01</td>
-                <td>19</td>
-              </tr>
+
             </tbody>
           </table>
           <nav aria-label="Page navigation" style="text-align: right;">

@@ -2,13 +2,12 @@ var osloAppRouting = angular.module('osloApp');
 osloAppRouting.config(function($routeProvider) {
   $routeProvider
       // route for the home page
-
-      .when('/tes:param', {
-          templateUrl : 'static/tes.html',
+      .when('/tes/:param', {
+          templateUrl : 'static/inputbystorage.html',
           controller  : 'inputstorageController',
           label: 'User List', options: {hidden: false}
       })
-  
+
       // .when('/inputbystorage/:param',{
       //     templateUrl : 'static/by-storage-baru.html',
       //     controller:'inputstorageController ',
@@ -42,7 +41,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/daily-report/daily-report-detail',{
         templateUrl : 'static/daily-report-detail.html',
-        controller:'',
+        controller:'dailyreportDetailController',
         label: 'Daily Report Detail', options: {hidden: false}
       })
       .when('/daily-report',{

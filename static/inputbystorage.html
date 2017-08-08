@@ -44,29 +44,29 @@
 
               <tr>
                 <td> SKU ID </td>
-                <!--<td>  {{response.data.data.skuData.skuId}} </td>-->
+                <td>   {{skuData.skuId}} </td>
               </tr>
 
               <tr>
                 <td>Nama Item </td>
-                <!--<td>{{response.data.data.itemName}}</td>-->
+                <td>  {{skuData.itemName}}</td>
 
               </tr>
 
               <tr>
                 <td> Tipe Stock </td>
-                <!--<td>{{response.data.data.stockType}} </td>-->
+                <td> {{skuData.stockType}} </td>
 
               </tr>
 
               <tr>
                 <td>Masukkan Physical Quantity </td>
-                <td> <input class="form-control" ></td>
+                <td> <input class="form-control" ng-model="physicalQty" ></td>
               </tr>
 
               <td>
                 <button type="button" name="button" class="btn btn-primary"
-                        style="text-align: right">
+                        style="text-align: right" ng-click="post1()">
                   Update Quantity
                 </button>
               </td>
