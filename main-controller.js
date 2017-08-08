@@ -1,29 +1,31 @@
  angular.module('osloApp').controller('mainController',['$rootScope','$scope','$http',
  function  ($rootScope,$scope,$http) {
 
-        if(true){
+        $scope.credentials={
+            username: '',
+            warehouse: ''
+          }; 
+
+        if(!localStorage.getItem('isLoggedIn')){
           $rootScope.isLoggedIn = false;
+
         }else{
           $rootScope.isLoggedIn = true;
 
           $scope.credentials={
-            username: $rootScope.username,
-            password: $rootScope.password,
-            warehouse: $rootScope.warehouse
+            username: localStorage.getItem('username'),
+            warehouse: localStorage.getItem('warehouse')
           }; 
         }
     
       $scope.logout = function(){
 
-        $rootScope.isLoggedIn = false;
-
-        $scope.credentials={
-          username: "",
-          password: "",
-          warehouse:""
-        };  
+        localStorage.removeItem('isLoggedIn')
+        localStorage.removeItem('username')
+        localStorage.removeItem('token')
+        localStorage.removeItem('role')
+        localStorage.removeItem('warehouse')
 
         location.href = "#/login";
-
       }
  }]);

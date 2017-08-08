@@ -1,20 +1,20 @@
  angular.module('osloApp').controller('userListController',['$rootScope','$scope','$http',
  function  ($rootScope, $scope,$http) {
 
-    if(!$rootScope.isLoggedIn){
+    if(!localStorage.getItem('isLoggedIn')){
       location.href = "#/login"
 
-    }else if($rootScope.credentials.role === "ROLE_COUNTER"){
+    }else if(localStorage.getItem('role') === "ROLE_COUNTER"){
         location.href = "#/";
 
     }else{
 
       var request = {
        method: "GET",
-       url: "http://localhost:8080/api/users?warehouse="+$rootScope.credentials.warehouse.data,
+       url: "http://localhost:8080/api/users?warehouse="+localStorage.getItem('warehouse'),
        headers: {
          "Content-Type": "application/json",
-         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+         "Authorization":"Basic " + localStorage.getItem('token')
        }
      }
      $http(request).then(function(response) {

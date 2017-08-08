@@ -8,7 +8,7 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
        url: "http://localhost:8080/api/stockopnames",
        headers: {
          "Content-Type": "application/json",
-         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+         "Authorization":"Basic " + localStorage.getItem('token')
        }
      }
      return $http(request).then(function(response) {
@@ -30,15 +30,19 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
       username:""
     };
 
+    $scope.count = 0;
+    $scope.totalSKU = 0;
+    $scope.totalQty = 0;
+
   getDataStockOpname();
    
 
       var request1 = {
        method: "GET",
-       url: "http://localhost:8080/api/users?warehouse="+$rootScope.credentials.warehouse.data,
+       url: "http://localhost:8080/api/users?warehouse="+localStorage.getItem('warehouse'),
        headers: {
          "Content-Type": "application/json",
-         "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+         "Authorization":"Basic " + localStorage.getItem('token')
        }
      }
      $http(request1).then(function(response) {
@@ -47,9 +51,16 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
     }
 
   $scope.clicky = function(index) {
-    $scope.data[index].checked = !$scope.data[index].checked;
-    data[index].checked = !data[index].checked;
-    console.log($scope.data);
+
+    if($scope.data[index].checked){
+      $scope.count++
+      $scope.totalSKU += $scope.data[index].totalSKU
+      $scope.totalQty += $scope.data[index].totalQty
+    }else{
+      $scope.count--
+      $scope.totalSKU -= $scope.data[index].totalSKU
+      $scope.totalQty -= $scope.data[index].totalQty
+    }
   }
 
   $scope.assignCounter= function() {
@@ -65,7 +76,7 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
              data: $scope.assignData,
              headers: {
                "Content-Type": "application/json",
-               "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+               "Authorization":"Basic " + localStorage.getItem('token')
              }
            }
          
@@ -78,8 +89,4 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
        }
     }
   }
-
-
-
-}])
-;
+}]);

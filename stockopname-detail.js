@@ -3,6 +3,8 @@ var stockopnameDetailController = angular.module('osloApp');
 
 stockopnameDetailController.controller('stockopnameDetailController',['$scope','$http', '$routeParams' , function  ($scope,$http, $routeParams) {
 
+if(localStorage.getItem('isLoggedIn')){
+  if(!localStorage.getItem('role') == ROLE_COUNTER){
     var request = {
         method: "GET",
         url: "http://localhost:8080/api/SKUs?id="+$routeParams.param,
@@ -16,7 +18,8 @@ stockopnameDetailController.controller('stockopnameDetailController',['$scope','
         $scope.response=response;
         console.Log($scope.response)
     })
-
+  }
+} 
 
 }])
 ;

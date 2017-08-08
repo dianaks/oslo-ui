@@ -106,7 +106,7 @@
               <tr ng-repeat = "stockopname in data">
                 <td>
                   <div class="checkbox">
-                    <label><input type="checkbox" ng-model="stockopname.checked"></label>{{data.stockopname[$index].checked}}
+                    <label><input type="checkbox" ng-model="stockopname.checked" ng-click="clicky($index)"></label>
                   </div>
                 </td>
                 <td>{{stockopname.stockOpnameId}}</td>
@@ -122,9 +122,6 @@
             </form>
           </tbody>
         </table>
-        <div ng-repeat = "stockopname in data">
-          <p>{{stockopname.status}}</p>
-        </div>
         <nav aria-label="Page navigation" style="text-align: right;">
           <ul class="pagination">
             <li class="disabled">
@@ -153,7 +150,7 @@
       </div>
       <div class="row">
         <div class="col-md-10" style="text-align:right">
-          <p>Total Stock Opname 0, Total SKU 0, Total Qty 0 terpilih.</p>
+          <p>Total Stock Opname {{count}}, Total SKU {{totalSKU}}, Total Qty {{totalQty}} terpilih.</p>
         </div>
         <div class="col-md-2"  style="padding-left:15px;">
           <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign Stock Opname</button>

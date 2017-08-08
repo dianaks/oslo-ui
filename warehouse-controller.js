@@ -1,8 +1,8 @@
  angular.module('osloApp').controller('warehouseController',['$rootScope','$scope','$http',
  function  ($rootScope,$scope,$http) {
 
-    if($rootScope.isLoggedIn){
-      if($rootScope.credentials.role === "ROLE_ADMIN"){
+    if(localStorage.getItem('isLoggedIn')){
+      if(localStorage.getItem('role') === "ROLE_ADMIN"){
         $scope.selectedWarehouse = {
             data: ''
           };
@@ -12,7 +12,7 @@
                url: "http://localhost:8080/api/warehouses",
                headers: {
                  "Content-Type": "application/json",
-                 "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+                 "Authorization":"Basic " + localStorage.getItem('token')
                }
              }
              
@@ -27,12 +27,13 @@
                data: $scope.selectedWarehouse,
                headers: {
                  "Content-Type": "application/json",
-                 "Authorization":"Basic " + btoa($rootScope.credentials.username+":"+$rootScope.credentials.password)
+                 "Authorization":"Basic " + localStorage.getItem('token')
                }
              }
              
             $http(request).then(function() {
-              $rootScope.credentials.warehouse=$scope.selectedWarehouse;
+              // $rootScope.credentials.warehouse=$scope.selectedWarehouse;
+              localStorage.setItem('warehouse',$scope.selectedWarehouse.data)
               location.href = "#/";
             });
           }
