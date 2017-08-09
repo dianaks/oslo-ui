@@ -38,7 +38,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/list-users/edit-user',{
         templateUrl:'static/edit-user.html',
-        controller:'',
+        controller:'editUserController',
         label: 'Edit User', options: {hidden: false}
       })
       .when('/list-users/register-user',{
