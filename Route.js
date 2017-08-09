@@ -1,8 +1,6 @@
 var osloAppRouting = angular.module('osloApp');
 osloAppRouting.config(function($routeProvider) {
   $routeProvider
-      // route for the home page
-
       .when('/byStorage:param', {
           templateUrl : 'static/inputbystorage.html',
           controller  : 'inputbystorageController',
@@ -35,7 +33,7 @@ osloAppRouting.config(function($routeProvider) {
       })
       .when('/daily-report/daily-report-detail',{
         templateUrl : 'static/daily-report-detail.html',
-        controller:'',
+        controller:'dailyreportDetailController',
         label: 'Daily Report Detail', options: {hidden: false}
       })
       .when('/daily-report',{
