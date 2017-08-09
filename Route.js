@@ -1,11 +1,6 @@
 var osloAppRouting = angular.module('osloApp');
 osloAppRouting.config(function($routeProvider) {
   $routeProvider
-      .when('/byStorage:param', {
-          templateUrl : 'static/inputbystorage.html',
-          controller  : 'inputbystorageController',
-          label: 'User List', options: {hidden: false}
-      })
       .when('/list-users', {
           templateUrl : 'static/list-users.html',
           controller  : 'userListController',
@@ -64,10 +59,16 @@ osloAppRouting.config(function($routeProvider) {
       .when('/warehouse',{
         templateUrl:'static/warehouse.html',
         controler:'warehouseController',
-        label: 'Warehouse', options: {hidden: true}
+        label: 'Warehouse', options: {hidden: false}
       })
       .when('/bySKU/:param',{
         templateUrl:'static/inputbysku.html',
+        controler:'',
+        label: 'Input By SKU', options: {hidden: false}
+      })
+
+      .when('/byStorage',{
+        templateUrl:'static/inputbystorage.html',
         controler:'',
         label: 'Input By SKU', options: {hidden: false}
       })

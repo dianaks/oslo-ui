@@ -1,11 +1,12 @@
 
 var worklistDetailController = angular.module('osloApp');
 
-worklistDetailController.controller('worklistDetailController',['$scope','$http', '$routeParams', 
-    function  ($scope,$http, $routeParams) {
+worklistDetailController.controller('worklistDetailController',['$rootScope','$scope','$http', '$routeParams', 
+    function  ($rootScope,$scope,$http, $routeParams){
 
         var skuIdTersimpan = "";
          $scope.methodInput = localStorage.getItem('methodInput');
+         localStorage.setItem('stockOpnameId',$routeParams.param);
 
     var request = {
         method: "GET",
@@ -29,7 +30,7 @@ worklistDetailController.controller('worklistDetailController',['$scope','$http'
                 $('#myModal').modal('toggle');
                 $('.modal-backdrop').remove();
                 localStorage.setItem('methodInput',"byStorage");
-                location.href = "#/byStorage/"+skuIdTersimpan;
+                location.href = "#/byStorage";
             } 
     }
 
