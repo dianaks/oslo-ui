@@ -9,7 +9,7 @@ angular.module('osloApp').controller('inputstorageController',['$scope','$http',
 
     var request1 = {
         method: "GET",
-        url: "http://localhost:8080/api/SKUs?STO-001",
+        url: "http://localhost:8080/api/SKUs?id=STO-001",
         headers: {
             "Content-Type": "application/json",
             "Authorization":"Basic "+ localStorage.getItem('token')
@@ -20,18 +20,18 @@ angular.module('osloApp').controller('inputstorageController',['$scope','$http',
         $scope.skuData=response.data.skuData;
     })
 
-$scope.updateQtyAndStatus = function() {
-    var request2 = {
-        method: "POST",
-        url: "http://localhost:8080/api/updatequantityandstatus",
-        data: $scope.physicalQty,
-        headers: {
-
-            "Content-Type": "application/json",
-            "Authorization":"Basic "+ btoa("demo-counter-one:123")
-        }
-    }
-}
+// $scope.updateQtyAndStatus = function() {
+//     var request2 = {
+//         method: "POST",
+//         url: "http://localhost:8080/api/updatequantityandstatus",
+//         data: $scope.physicalQty,
+//         headers: {
+//
+//             "Content-Type": "application/json",
+//             "Authorization":"Basic "+ btoa("demo-counter-one:123")
+//         }
+//     }
+// }
 
 }])
 ;
