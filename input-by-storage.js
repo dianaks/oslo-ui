@@ -1,116 +1,45 @@
-// var inputByStorageController = angular.module('osloApp');
+angular.module('osloApp').controller('inputstorageController',['$rootScope','$scope','$http', '$routeParams' , 
+    function  ($rootScope,$scope,$http, $routeParams) {
+    // alert('halo');
 
-// inputByStorageController.controller('inputByStorageController',['$scope','$http', '$routeParams',
-//  function  ($scope,$http, $routeParams) {
+    $scope.checkData={
+        skuId:"",
+        stoId:localStorage.getItem('stockOpnameId'),
+        storageCode:""
+    }
+    $scope.skuReq={
+        skuId:$routeParams.param,
+        physicalQty:0,
+        information:""
+    };          
 
-//     var request = {angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$routeParams',
-//     function($scope,$http, $routeParams) {
-    
-//     $scope.strgCode
-//     $scope.qtyFisik = 0;
-//     $scope.SKUid = "";
-//     $scope.statusHabis = false;
+    var request1 = {
+        method: "GET",
+        url: "http://localhost:8080/api/storage?id="+localStorage.getItem('stockOpnameId'),
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization":"Basic "+ localStorage.getItem('token')
+        }
+    }
 
-//     $scope.skuReq={
-//         skuId:$routeParams.param,
-//         physicalQty:0,
-//         information:""
-//     };
+    $http(request1).then(function (response) {
+        $scope.storageCodeList=response.data.data;
+        console.log($scope.storageCodeList)
+    })
 
-//     var allowed = false;
+    var request2 = {
+        method: "POST",
+        url: "http://localhost:8080/api/skubystorage",
+        headers: {
+            "Content-Type": "application/json",
+            "data":$scope.checkdata,
+            "Authorization":"Basic "+ localStorage.getItem('token')
+        }
+    }
 
-//     var request = {
-//         method: "GET",
-//         url: "http://localhost:8080/api/SKU?id="+$routeParams.param,
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Authorization":"Basic "+ localStorage.getItem('token')
-//         }
-//     }
-//     $http(request).then(function (response) {
-//         $scope.skuInfo=response.data.data;
-//     })
+    $http(request2).then(function (response) {
+        $scope.check=response.data;
+        console.log($scope.check)
+    })
 
-//     $scope.submitQtyFisik = function(){
-
-//         if($skuReq.physicalQty==0 && $scope.statusHabis){
-//             $scope.skuReq.information="Barang Habis"
-
-//         }else if($skuReq.physicalQty==0){
-//             $scope.skuReq.information="Tidak Dihitung"
-//         }else{
-//             $scope.skuReq.information="Sudah Dihitung"
-//         }
-
-//         var request = {
-//             method: "POST",
-//             url: "http://localhost:8080/api/updatestatus",
-//             data: $scope.skuReq,
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization":"Basic "+ localStorage.getItem('token')
-//             }
-//         }
-//         $http(request).then(function (response) {
-//             $scope.response=response;
-//             console.log($scope.response)
-//             location.href = "#/worklist";
-//         })
-
-//     }
-
-//     $scope.barangHabis = function(){
-//         $scope.statusHabis = true;
-//         swal("Berhasil!", "Informasi barang habis berhasil disimpan","success")
-//     }
-
-//     $scope.patenkanQty = function(){
-//         if(allowed){
-//            localStorage.setItem('qtyFisikFix',$scope.skuReq.physicalQty)
-//         $scope.qtyFisik = localStorage.getItem('qtyFisikFix') 
-//         }else{
-//             swal("Tidak Diizinkan!","Isikan dahulu storage code yang sesuai", "error")
-//         }       
-        
-//     }
-
-//     $scope.checkStorageCode = function(){
-//         if($scope.strgCode == $scope.skuInfo.storageCode){
-//             allowed = true;
-//         }else{
-//             swal("storageCode Salah!","Anda tidak bisa mengisi SKU Id jika storage code yang anda masukkan salah", "error")
-//         }
-//     }
-
-//     $scope.checkSKUid = function(){
-//         if(allowed){
-//            if($scope.SKUid == $scope.skuReq.skuId){
-//                 $scope.SKUid ="";
-//                 $scope.skuReq.physicalQty++;
-//                 $scope.qtyFisik++;
-//                 localStorage.setItem('qtyFisikFix',$scope.physicalQty)
-//                 swal("Berhasil Ditambahkan!","","success")
-//             }else{
-//                 $scope.SKUid ="";
-//                 swal("SKU Id Salah!","Isikan SKU Id dengan benar", "error")
-//             } 
-//         }else{
-//             swal("Tidak Diizinkan!","Isikan dahulu storage code yang sesuai", "error")
-//         }
-        
-//     }
-// }]);
-
-//         method: "GET",
-//         url: "http://localhost:8080/api/SKU?id="+$routeParams.param,
-//         headers: {
-
-//             "Content-Type": "application/json",
-//             "Authorization":"Basic "+ localStorage.getItem('token')
-//         }
-//     }
-//     $http(request).then(function (response) {
-//         $scope.response=response;
-//         alert('halo');
-//     })
-// }]);
+}]);

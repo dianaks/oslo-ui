@@ -7,11 +7,11 @@
   </head>
   <body>
 
-    <div class="container" ng-controller="inputBySKUController">
+    <div class="container" ng-controller="inputstorageController">
 
       <div class="row" style="margin-right: 10px">
         <div class="col-md-9">
-          <h2>{{skuReq.skuId}}</h2>
+          <h2>Input By Storage</h2>
         </div>
 
         <div class="col-md-3" style="display: inline; text-align: right; margin-right: ">
@@ -27,17 +27,17 @@
       <div class="row">
         <div class="col-md-8">
           <table class="table borderless">
-            <tr>
-              <td style="width: 170px;">SKU ID</td>
-              <td><b>:</b></td>
-              <td>{{skuReq.skuId}}</td>
-            </tr>
-            <tr>
+             <!-- <tr>
+               <td style="width: 170px;">SKU ID</td>
+               <td><b>:</b></td>
+               <td>{{skuReq.skuId}}</td>
+             </tr> -->
+            <tr ng-show="false">
               <td style="width: 170px;">Nama Item</td>
               <td><b>:</b></td>
               <td>{{skuInfo.itemName}}</td>
             </tr>
-            <tr>
+            <tr ng-show="false">
               <td style="width: 170px;">Tipe Stock</td>
               <td><b>:</b></td>
               <td>{{skuInfo.stockType}}</td>
