@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+
+    <div class="container" ng-controller="inputstorageController">
+
+      <div class="row" style="margin-right: 10px">
+        <div class="col-md-9">
+          <h2>Input By Storage</h2>
+        </div>
+
+        <div class="col-md-3" style="display: inline; text-align: right; margin-right: ">
+          <button type="button" name="button" class="btn btn-default"
+                  style=""> Kembali Ke Worklist </button>
+          <button type="button" name="button" class="btn btn-primary"
+                  style="">
+            Selesaikan
+          </button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table borderless">
+             <!-- <tr>
+               <td style="width: 170px;">SKU ID</td>
+               <td><b>:</b></td>
+               <td>{{skuReq.skuId}}</td>
+             </tr> -->
+            <tr ng-show="false">
+              <td style="width: 170px;">Nama Item</td>
+              <td><b>:</b></td>
+              <td>{{skuInfo.itemName}}</td>
+            </tr>
+            <tr ng-show="false">
+              <td style="width: 170px;">Tipe Stock</td>
+              <td><b>:</b></td>
+              <td>{{skuInfo.stockType}}</td>
+            </tr>
+            <tr>
+              <td style="width: 170px;">Storage Code </td>
+              <td><b>:</b></td>
+              <td>{{currentData.storageCode}}</td>
+            </tr>
+          
+            <div class="form-group">
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Barcode Storage</label></td>
+              <td><b>:</b></td>
+              <td><form ng-submit="checkStorageCode()"><input class="form-control" id="inputStorage" placeholder="Masukkan Barcode Storage" ng-model="storageInput"></form>
+            </tr> 
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Barcode SKU Id</label></td>
+              <td><b>:</b></td>
+              <td><form ng-submit="checkSKUid()"><input class="form-control" id="inputSKU" placeholder="Masukkan Barcode SKU" ng-model="currentData.skuId"></form></td>
+            </tr>   
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Qty Fisik</label></td>
+              <td><b>:</b></td>
+              <td>
+                <form ng-submit="patenkanQty()">
+                  <div class="col-md-9">
+                    <input class="form-control" id="inputQtyFisik" placeholder="Masukkan Qty Fisik" ng-model="qtyFix">
+                  </div>
+                  <div class="col-md-3" style="margin-left: -80px">
+                    <input type="submit" class="btn btn-success" value="Perbaharui"></input>
+                  </div>
+                </form>
+              </td>
+            </tr>          
+        </table>
+        <div class="row">
+          <div style="display: inline;">
+            <button ng-click="submitQtyFisik(-1)" type="button" name="button" class="btn btn-warning" ng-disabled="idx >= 0" 
+                    style="">Sebelumnya</button>
+            <button ng-click="submitQtyFisik(1)" type="button" name="button" class="btn btn-primary" ng-disabled="idx < scLong"
+                    style="">Selanjutnya</button>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-4" style="margin-left:80px; width:200px; border:solid black 5px">
+          <h4 style="text-align: center;">Qty Fisik Akumulatif:</h3>
+          <p style="text-align: center; font-size: 60px">{{currentData.physicalQty}}</p> 
+        </div>
+      </div>
+
+        </div>
+
+      </div>
+
+
+  </body>
+</html>
