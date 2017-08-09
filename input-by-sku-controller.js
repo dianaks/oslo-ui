@@ -18,7 +18,7 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
         method: "GET",
         url: "http://localhost:8080/api/SKU?id="+$routeParams.param,
         headers: {
-            // "Content-Type": "application/json",
+            "Content-Type": "application/json",
             "Authorization":"Basic "+ localStorage.getItem('token')
         }
     }
@@ -28,10 +28,10 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
 
     $scope.submitQtyFisik = function(){
 
-        if($skuReq.physicalQty==0 && $scope.statusHabis){
+        if($scope.skuReq.physicalQty==0 && $scope.statusHabis){
             $scope.skuReq.information="Barang Habis"
 
-        }else if($skuReq.physicalQty==0){
+        }else if($scope.skuReq.physicalQty==0){
             $scope.skuReq.information="Tidak Dihitung"
         }else{
             $scope.skuReq.information="Sudah Dihitung"

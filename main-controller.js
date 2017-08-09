@@ -25,6 +25,10 @@
         localStorage.removeItem('token')
         localStorage.removeItem('role')
         localStorage.removeItem('warehouse')
+        localStorage.removeItem('methodInput')
+        localStorage.removeItem('stockOpnameId')
+        localStorage.removeItem('qtyFisikFix')
+        localStorage.removeItem('inputBySKU')
 
         location.href = "#/login";
       }
