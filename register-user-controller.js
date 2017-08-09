@@ -29,7 +29,6 @@ function  ($rootScope,$scope,$http) {
 
 
           $scope.registerUser = function(){
-            alert($scope.newUser.warehouse);
             var request = {
               method: "POST",
               url: "http://localhost:8080/api/users",

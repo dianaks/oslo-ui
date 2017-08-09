@@ -31,6 +31,10 @@
             localStorage.setItem('token',btoa($scope.credentials.username+":"+$scope.credentials.password))
             localStorage.setItem('role', response.data.data.role)
 
+            $rootScope.credentials = {
+              username: $scope.credentials.username,
+            }
+            $scope.$emit('onLogin');
             location.href = "#/warehouse";
 
           }else{

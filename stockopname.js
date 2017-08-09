@@ -1,5 +1,5 @@
 angular.module('osloApp').controller('stockopnameController',['$rootScope','$scope','$http', function  ($rootScope,$scope,$http) {
-  
+
   let data = {};
 
   var getDataStockOpname = function(){
@@ -35,7 +35,6 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
     $scope.totalQty = 0;
 
   getDataStockOpname();
-   
 
       var request1 = {
        method: "GET",

@@ -3,6 +3,7 @@ var worklistController = angular.module('osloApp');
 
 worklistController.controller('worklistController',['$scope','$http',
     function  ($scope,$http) {
+          localStorage.setItem('methodInput',"")
         var request = {
             method: "GET",
             url: "http://localhost:8080/api/worklist",

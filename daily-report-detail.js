@@ -15,7 +15,7 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
             url: "http://localhost:8080/api/SKUreport?date=2017-04-24",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Basic " + btoa("admin-demo-one:123")
+                "Authorization": "Basic " + localStorage.getItem('token')
             }
         }
         $http(request).then(function (response) {
@@ -32,7 +32,8 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
             url: "http://localhost:8080/api/SKUs?id=" + stoid,
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Basic " + btoa("admin-demo-one:123")
+                "Authorization": "Basic " + localStorage.getItem('token')
+
             }
         }
         $http(request4).then(function (response) {
@@ -51,7 +52,7 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
             url: "http://localhost:8080/api/unknownSKUs1?id="+stoid,
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Basic " + btoa("admin-demo-one:123")
+                "Authorization": "Basic " + localStorage.getItem('token')
             }
         }
         $http(request4).then(function (response) {
