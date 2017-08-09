@@ -1,94 +1,95 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
- <meta charset="utf-8">
+    <meta charset="utf-8">
     <title></title>
-  </head>
-  <body ng-controller = "inputByStorageController">
-    <div class="container" >
-      <div class="row">
-      <div class="col-md-9">
-      <h2>STO/WAB/000001/000001 inputbystorage.html</h2>
-      </div>
 
-        <div class="col-md-2">
-          <button type="button" name="button" class="btn btn-default"
-                  style="text-align: right"> Kembali Ke Worklist </button>
+  </head>
+  <body>
+
+    <div class="container" ng-controller="inputBySKUController">
+
+      <div class="row" style="margin-right: 10px">
+        <div class="col-md-9">
+          <h2>{{skuReq.skuId}}</h2>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-3" style="display: inline; text-align: right; margin-right: ">
+          <button type="button" name="button" class="btn btn-default"
+                  style=""> Kembali Ke Worklist </button>
           <button type="button" name="button" class="btn btn-primary"
-                  style="text-align: right">
+                  style="">
             Selesaikan
           </button>
         </div>
-          </div>
-
-        <div class="col-md-9">
+      </div>
+      
+      <div class="row">
+        <div class="col-md-8">
           <table class="table borderless">
-            <thead>
-            </thead>
-            <tbody>
-
-              <tr >
-                <td>Masukkan Barcode Storage</td>
-                <td><input class="form-control" ></td>
-              </tr>
-              <tr>
-                <td>Masukkan Barcode SKU </td>
-                <td> <input class="form-control" ></td>
-              </tr>
-
-              <tr>
-                <td> SKU ID </td>
-                <!--<td>  {{response.data.data.skuData.skuId}} </td>-->
-              </tr>
-
-              <tr>
-                <td>Nama Item </td>
-                <!--<td>{{response.data.data.itemName}}</td>-->
-
-              </tr>
-
-              <tr>
-                <td> Tipe Stock </td>
-                <!--<td>{{response.data.data.stockType}} </td>-->
-
-              </tr>
-
-              <tr>
-                <td>Masukkan Physical Quantity </td>
-                <td> <input class="form-control" ></td>
-              </tr>
-
+            <tr>
+              <td style="width: 170px;">SKU ID</td>
+              <td><b>:</b></td>
+              <td>{{skuReq.skuId}}</td>
+            </tr>
+            <tr>
+              <td style="width: 170px;">Nama Item</td>
+              <td><b>:</b></td>
+              <td>{{skuInfo.itemName}}</td>
+            </tr>
+            <tr>
+              <td style="width: 170px;">Tipe Stock</td>
+              <td><b>:</b></td>
+              <td>{{skuInfo.stockType}}</td>
+            </tr>
+            <tr>
+              <td style="width: 170px;">Storage Code </td>
+              <td><b>:</b></td>
+              <td>{{skuInfo.storageCode}}</td>
+            </tr>
+          
+            <div class="form-group">
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Barcode Storage</label></td>
+              <td><b>:</b></td>
+              <td><form ng-submit="checkStorageCode()"><input class="form-control" id="inputStorage" placeholder="Masukkan Barcode Storage" ng-model="strgCode"></form>
+            </tr> 
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Barcode SKU Id</label></td>
+              <td><b>:</b></td>
+              <td><form ng-submit="checkSKUid()"><input class="form-control" id="inputSKU" placeholder="Masukkan Barcode SKU" ng-model="SKUid"></form></td>
+            </tr>   
+            <tr>
+              <td style="width: 170px;"><label class="control-label">Qty Fisik</label></td>
+              <td><b>:</b></td>
               <td>
-                <button type="button" name="button" class="btn btn-primary"
-                        style="text-align: right">
-                  Update Quantity
-                </button>
+                <form ng-submit="patenkanQty()">
+                  <div class="col-md-9">
+                    <input class="form-control" id="inputQtyFisik" placeholder="Masukkan Qty Fisik" ng-model="skuReq.physicalQty">
+                  </div>
+                  <div class="col-md-3" style="margin-left: -80px">
+                    <input type="submit" class="btn btn-success" value="Perbaharui"></input>
+                  </div>
+                </form>
               </td>
-
-            </tbody>
-          </table>
+            </tr>          
+        </table>
+        <div class="row">
+          <div style="display: inline;">
+            <button ng-click="barangHabis()" type="button" name="button" class="btn btn-warning"
+                    style="">Stok Habis</button>
+            <button ng-click="submitQtyFisik()" type="button" name="button" class="btn btn-primary"
+                    style=""> Selanjutnya </button>
+          </div>
         </div>
-
-        <div class="col-md-3">
-          Qty Fisik Akumulatif: <input class="form-control">
         </div>
+        <div class="col-md-4" style="margin-left:80px; width:200px; border:solid black 5px">
+          <h4 style="text-align: center;">Qty Fisik Akumulatif:</h3>
+          <p style="text-align: center; font-size: 60px">{{qtyFisik}}</p> 
+        </div>
+      </div>
 
-<div class="row" >
-<div class="col-md-9">
-</div>
 
-  <div class="col-md-2">
-    <button type="button" name="button" class="btn btn-default"
-            style="text-align: right"> Sebelumnya</button>
-  </div>
-  <div class="col-md-1">
-    <button type="button" name="button" class="btn btn-default"
-            style="text-align: right"> Selanjutnya </button>
-  </div>
-</div>
           <nav aria-label="Page navigation" style="text-align: right;">
             <ul class="pagination">
               <li class="disabled">
@@ -116,7 +117,7 @@
           </nav>
         </div>
 
-      <!--</div>-->
+      </div>
 
 
   </body>

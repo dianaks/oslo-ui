@@ -62,7 +62,6 @@
 
                 </th>
                 <th>Stock Opname No.</th>
-                <!--<th>Counter</th>-->
                 <th>Status</th>
                 <th>Waktu Pembuatan</th>
                 <th>Total Qty</th>
@@ -104,13 +103,16 @@
             </thead>
             <tbody>
 
-            <tr ng-repeat = "stockopname in response.data.data">
+            <tr ng-repeat = "stockopname in response">
                 <td>
 
                 </td>
                 <td>{{stockopname.stockOpnameId}} </td>
                 <td>{{stockopname.status}}</td>
-                <!--<td>{{stockopname.waktuPembuatan}}</td>-->
+                <td>{{stockopname.waktuPembuatan.year}}/
+                0{{stockopname.waktuPembuatan.monthOfYear}}/
+                0{{stockopname.waktuPembuatan.dayOfMonth}}
+                </td>
                 <td>{{stockopname.totalQty}}</td>
                 <td>{{stockopname.totalSKU}}</td>
                 <td>

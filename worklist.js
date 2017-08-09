@@ -12,6 +12,11 @@ worklistController.controller('worklistController',['$scope','$http',
             }
         }
         $http(request).then(function (response) {
-            $scope.response=response;
+            $scope.response=response.data.data;
+            console.log(response)
+
+            // for (var i = 0; i <= $scope.response.data.data.length; i++) {
+            //     $scope.response.data.data[i].waktuPembuatan
+            // }
         })
 }]);

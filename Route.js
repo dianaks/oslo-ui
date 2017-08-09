@@ -3,7 +3,7 @@ osloAppRouting.config(function($routeProvider) {
   $routeProvider
       // route for the home page
 
-      .when('/tes:param', {
+      .when('/byStorage:param', {
           templateUrl : 'static/inputbystorage.html',
           controller  : 'inputbystorageController',
           label: 'User List', options: {hidden: false}
@@ -68,7 +68,7 @@ osloAppRouting.config(function($routeProvider) {
         controler:'warehouseController',
         label: 'Warehouse', options: {hidden: true}
       })
-      .when('/input/:param',{
+      .when('/bySKU/:param',{
         templateUrl:'static/inputbysku.html',
         controler:'',
         label: 'Input By SKU', options: {hidden: false}

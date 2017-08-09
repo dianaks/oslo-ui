@@ -4,11 +4,12 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
     $scope.strgCode
     $scope.qtyFisik = 0;
     $scope.SKUid = "";
+    $scope.statusHabis = false;
 
     $scope.skuReq={
         skuId:$routeParams.param,
         physicalQty:0,
-        information:"Belum Dihitung"
+        information:""
     };
 
     var allowed = false;
@@ -26,12 +27,21 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
     })
 
     $scope.submitQtyFisik = function(){
+
+        if($skuReq.physicalQty==0 && $scope.statusHabis){
+            $scope.skuReq.information="Barang Habis"
+
+        }else if($skuReq.physicalQty==0){
+            $scope.skuReq.information="Tidak Dihitung"
+        }else{
+            $scope.skuReq.information="Sudah Dihitung"
+        }
+
         var request = {
             method: "POST",
             url: "http://localhost:8080/api/updatestatus",
             data: $scope.skuReq,
             headers: {
-
                 "Content-Type": "application/json",
                 "Authorization":"Basic "+ localStorage.getItem('token')
             }
@@ -42,6 +52,11 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
             location.href = "#/worklist";
         })
 
+    }
+
+    $scope.barangHabis = function(){
+        $scope.statusHabis = true;
+        swal("Berhasil!", "Informasi barang habis berhasil disimpan","success")
     }
 
     $scope.patenkanQty = function(){
