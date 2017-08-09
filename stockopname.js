@@ -65,15 +65,16 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
 
   $scope.assignCounter= function() {
     for (var n = 0; n < $scope.data.length; n++) {
-      console.log($scope.data[n])
        if($scope.data[n].checked){
-
         $scope.assignData.stockOpnameId = $scope.data[n].stockOpnameId
 
          var request2 = {
              method: "POST",
              url: "http://localhost:8080/api/assignments",
-             data: $scope.assignData,
+             data: {
+              stockOpnameId:$scope.assignData.stockOpnameId,
+              username:$scope.assignData.username
+            },
              headers: {
                "Content-Type": "application/json",
                "Authorization":"Basic " + localStorage.getItem('token')
@@ -83,10 +84,14 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
          $http(request2).then(function(response) {
            $scope.res = response;
            getDataStockOpname().then(function() {
-            $('#myModal').modal('toggle')
+            $('#myModal').modal('hide');
            });
          })
        }
     }
+      $scope.count = 0;
+    $scope.totalSKU = 0;
+    $scope.totalQty = 0;
   }
+
 }]);

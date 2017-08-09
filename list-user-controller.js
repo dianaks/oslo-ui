@@ -19,6 +19,7 @@
      }
      $http(request).then(function(response) {
        $scope.response = response;
+       console.log(response.data.data)
      });
 
      function relocate_register(){

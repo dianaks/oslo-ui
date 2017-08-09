@@ -11,10 +11,10 @@ function  ($rootScope,$scope,$http) {
     $('.selectpicker').selectpicker('render');
 
     if(localStorage.getItem('isLoggedIn')){
-      if(!localStorage.getItem('role') == ROLE_COUNTER){
+      if(localStorage.getItem('role') !== "ROLE_COUNTER"){
         $scope.checkRole = function(){
             $scope.reset();
-            if($scope.newUser.role=="ROLE_ADMIN"){
+            if($scope.newUser.role==="ROLE_ADMIN"){
                 $scope.isCounter = false;
             }else {
                 $scope.isCounter = true;
