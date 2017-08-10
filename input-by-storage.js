@@ -114,7 +114,7 @@ angular.module('osloApp').controller('inputstorageController',['$rootScope','$sc
     }
 
     $scope.patenkanQty = function(){
-        if(allowed){alert("dor")
+        if(allowed){
         $scope.currentData.physicalQty=$scope.qtyFix;
         }else{
             swal("Tidak Diizinkan!","Isikan dahulu storage code yang sesuai", "error")

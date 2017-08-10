@@ -49,7 +49,7 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
         $http(request).then(function (response) {
             $scope.response=response;
             console.log($scope.response)
-            location.href = "#/worklist";
+            location.href = "#/worklist-detail/"+localStorage.getItem('stockOpnameId');
         })
 
     }

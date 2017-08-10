@@ -88,7 +88,7 @@ angular.module('osloApp').controller('stockopnameController',['$rootScope','$sco
          })
        }
     }
-      $scope.count = 0;
+    $scope.count = 0;
     $scope.totalSKU = 0;
     $scope.totalQty = 0;
   }

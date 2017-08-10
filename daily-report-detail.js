@@ -5,8 +5,7 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
 
     $scope.skulist = [];
     $scope.uskulist = [];
-
-    $scope.stockopnames=[{},{},{},{}];
+    $scope.stockopnames=[];
 
 
 //baru ngeget STO yg ada di date yg dicari
@@ -18,11 +17,6 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
                 "Authorization": "Basic " + localStorage.getItem('token')
             }
         }
-        $http(request).then(function (response) {
-            $scope.stockopnames = response.data.data;
-            // console.log(response.data.data)
-            // console.log($scope.stockopnames[0].stockOpnameId)
-        })
 
 //ngeget listSKU yg ada dgn STO tertentu
     var getSkufromSTO = function (stoid) {
@@ -49,7 +43,7 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
         // console.log(stoid)
         var request4 = {
             method: "GET",
-            url: "http://localhost:8080/api/unknownSKUs1?id="+stoid,
+            url: "http://localhost:8080/api/unknownSKUs?id="+stoid,
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Basic " + localStorage.getItem('token')
@@ -63,18 +57,6 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
         })
     }
 
-    var interationAllSTO = function () {
-        console.log($scope.stockopnames.length)
-        for (i = 0; i < $scope.stockopnames.length; i++) {
-            console.log($scope.stockopnames[i].stockOpnameId)
-            getSkufromSTO($scope.stockopnames[i].stockOpnameId)
-        }
-    }
-
-    interationAllSTO();
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     var interationAllSTOUnknown = function () {
         console.log($scope.stockopnames.length)
         for (i = 0; i < $scope.stockopnames.length; i++) {
@@ -83,7 +65,16 @@ dailyreportDetailController.controller('dailyreportDetailController',['$scope','
         }
     }
 
-    interationAllSTOUnknown();
+    var interationAllSTO = function () {
+        console.log($scope.stockopnames.length)
+        for (i = 0; i < $scope.stockopnames.length; i++) {
+            console.log($scope.stockopnames[i].stockOpnameId)
+            getSkufromSTO($scope.stockopnames[i].stockOpnameId)
+        }
+        interationAllSTOUnknown();
+    }
 
-
+    $http(request).then(function (response) {
+        $scope.stockopnames = response.data.data;
+    }).then(interationAllSTO)
 }]);
