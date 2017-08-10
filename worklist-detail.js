@@ -20,6 +20,22 @@ worklistDetailController.controller('worklistDetailController',['$rootScope','$s
         $scope.response=response;
     })
 
+    var startCounting = function(){
+        var request = {
+            method: "PUT",
+            url: "http://localhost:8080/api/updatestarttimestockopname?id="+$routeParams.param,
+            headers: {
+
+                "Content-Type": "application/json",
+                "Authorization":"Basic "+ localStorage.getItem('token')
+            }
+        }
+        $http(request).then(function (response) {
+            $scope.response=response;
+            
+        })
+     }
+
     $scope.selectMethod = function(inputBySKU){
             if(inputBySKU){
                 $('#myModal').modal('toggle');
@@ -32,6 +48,7 @@ worklistDetailController.controller('worklistDetailController',['$rootScope','$s
                 localStorage.setItem('methodInput',"byStorage");
                 location.href = "#/byStorage";
             } 
+        startCounting()
     }
 
     $scope.simpanSKUid = function(skuId){
@@ -43,5 +60,8 @@ worklistDetailController.controller('worklistDetailController',['$rootScope','$s
         localStorage.removeItem('methodInput')
         location.href = "#/worklist";
     }
+
+
+    
 }])
 ;

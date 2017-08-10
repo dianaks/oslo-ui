@@ -94,6 +94,24 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
         }
         
     }
+
+    var finishCounting = function(){
+        var request = {
+            method: "PUT",
+            url: "http://localhost:8080/api/updatefinishtimestockopname?id="+localStorage.getItem('stockOpnameId'),
+            headers: {
+
+                "Content-Type": "application/json",
+                "Authorization":"Basic "+ localStorage.getItem('token')
+            }
+        }
+        $http(request).then(function (response) {
+            $scope.response=response;
+            localStorage.removeItem('methodInput')
+            location.href = "#/worklist";
+        })
+     }
+
     $scope.selesaikan = function(){
         var request = {
             method: "PUT",
@@ -106,8 +124,8 @@ angular.module('osloApp').controller('inputBySKUController',['$scope','$http','$
         }
         $http(request).then(function (response) {
             $scope.response=response;
-            localStorage.removeItem('methodInput')
-            location.href = "#/worklist";
-        })        
+        }).then(finishCounting)     
     }
+
+
 }]);
