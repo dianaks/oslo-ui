@@ -163,5 +163,22 @@ angular.module('osloApp').controller('inputstorageController',['$rootScope','$sc
                 information: 0,
             };
         })
+
+    $scope.selesaikan = function(){
+        var request = {
+            method: "PUT",
+            url: "http://localhost:8080/api/updatesto",
+            data: localStorage.getItem('stockOpnameId'),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization":"Basic "+ localStorage.getItem('token')
+            }
+        }
+        $http(request).then(function (response) {
+            $scope.response=response;
+            localStorage.removeItem('methodInput')
+            location.href = "#/worklist";
+        })        
+    }
     }
 }]);
